@@ -51,14 +51,14 @@ public class productDAO {
     }
 
     // 제품 등록 함수
-    public int productWrite(int productID, String Oid, int productNumber, String productName) throws IOException {
+    public int productWrite(int productID, String oid, int productNumber, String productName) throws IOException {
         String SQL = "INSERT INTO product VALUES (?, ?, ?, ?)";
         
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
 
             pstmt.setInt(0, productID);
-            pstmt.setString(1, Oid);
+            pstmt.setString(1, oid);
             pstmt.setInt(2, productNumber);
             pstmt.setString(3, productName);
         } catch (Exception e) {

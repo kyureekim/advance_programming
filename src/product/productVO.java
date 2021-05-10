@@ -2,7 +2,7 @@ package product;
 
 public class productVO {
     private int productID;
-    private String Oid;
+    private String oid;
     private int productNumber;
     private String productName;
 
@@ -14,12 +14,12 @@ public class productVO {
         this.productID = productID;
     }
 
-    public String getOid() {
-        return this.Oid;
+    public String getoid() {
+        return this.oid;
     }
 
-    public void setOid(String Oid) {
-        this.Oid = Oid;
+    public void setoid(String Oid) {
+        this.oid = Oid;
     }
 
     public int getProductNumber() {
