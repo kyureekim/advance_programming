@@ -19,7 +19,7 @@ pageEncoding="UTF-8" %>
         <div class="inner">
           <!-- Header -->
           <header id="header">
-            <h1>구매완료</h1>
+            <h2>구매완료</h2>
             <ul class="icons">
               <li>
                 <a href="login.html"><span class="label">Login</span></a>

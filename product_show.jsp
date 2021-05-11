@@ -19,32 +19,13 @@ pageEncoding="UTF-8" %>
         <div class="inner">
           <!-- Header -->
           <header id="header">
-            <h1>신청한 기부물품</h1>
+            <h2>신청한 기부물품</h2>
             <ul class="icons">
               <li>
-                <a href="#" class="icon brands fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
+                <a href="login.html"><span class="label">Login</span></a>
               </li>
               <li>
-                <a href="#" class="icon brands fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-snapchat-ghost"
-                  ><span class="label">Snapchat</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-medium-m"
-                  ><span class="label">Medium</span></a
-                >
+                <a href="login.html"><span class="label">Logout</span></a>
               </li>
             </ul>
           </header>

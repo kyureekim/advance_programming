@@ -7,72 +7,55 @@ pageEncoding="UTF-8" %>
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>투명한 기부</title>
-        <link rel="stylesheet" href="assets/css/main.css" />
-    </head>
-    <body class="is-preload">
-      <!--Wrapper-->
-      <div id="wrapper">
-        <div id="main">
-            <div class="inner">
-                <header id="header">
-                    <h1>공유서류</h1>
-                    <ul class="icons">
-                        <li>
-                          <a href="#" class="icon brands fa-twitter"
-                            ><span class="label">Twitter</span></a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="icon brands fa-facebook-f"
-                            ><span class="label">Facebook</span></a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="icon brands fa-snapchat-ghost"
-                            ><span class="label">Snapchat</span></a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="icon brands fa-instagram"
-                            ><span class="label">Instagram</span></a
-                          >
-                        </li>
-                        <li>
-                          <a href="#" class="icon brands fa-medium-m"
-                            ><span class="label">Medium</span></a
-                          >
-                        </li>
-                      </ul>
-                </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>투명한 기부</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <!--Wrapper-->
+    <div id="wrapper">
+      <div id="main">
+        <div class="inner">
+          <header id="header">
+            <h2>공유서류</h2>
+            <ul class="icons">
+              <li>
+                <a href="login.html"><span class="label">Login</span></a>
+              </li>
+              <li>
+                <a href="login.html"><span class="label">Logout</span></a>
+              </li>
+            </ul>
+          </header>
 
-                <!--Content-->
-                <section>
-                    <div>공유서류 내역은 사용자에게 공개됩니다.</div><br/>
-                    <div class="col-6 col-12-small">
-                        <form>
-                            <div class="box">
-                                <h2>기부내역</h2>
-                                <p>date : 2021.5.10</p>
-                                <input type="file" name="fileName">
-                            </div>
-                            <button
-                                type="submit"
-                                id="fileSubmit"
-                                name="fileSubmit"
-                                style="float: right; margin-right: 10px;"
-                            >
-                                공유서류 등록</button>
-                        </form>
-                    </div>
-                </section>
+          <!--Content-->
+          <section>
+            <div>공유서류 내역은 사용자에게 공개됩니다.</div>
+            <br />
+            <div class="col-6 col-12-small">
+              <form>
+                <div class="box">
+                  <h2>기부내역</h2>
+                  <p>date : 2021.5.10</p>
+                  <input type="file" name="fileName" />
+                </div>
+                <button
+                  type="submit"
+                  id="fileSubmit"
+                  name="fileSubmit"
+                  style="float: right; margin-right: 10px"
+                >
+                  공유서류 등록
+                </button>
+              </form>
             </div>
+          </section>
         </div>
-      
+      </div>
+
       <!-- Sidebar -->
       <div id="sidebar">
         <div class="inner">
@@ -134,13 +117,13 @@ pageEncoding="UTF-8" %>
           </section>
         </div>
       </div>
-      </div>
+    </div>
 
-        <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
