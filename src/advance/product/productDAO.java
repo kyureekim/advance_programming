@@ -1,8 +1,6 @@
-package product;
+package advance.product;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -18,7 +16,7 @@ public class productDAO {
     // 서블릿이 없는 DB 연결 코드
     public productDAO(){
         try {
-            InputStream in = (this.getClass().getResourceAsStream("../../db.properties"));
+            InputStream in = (this.getClass().getResourceAsStream("../../../db.properties"));
             Properties p = new Properties();
             p.load(in);
 
@@ -27,17 +25,25 @@ public class productDAO {
             String dbpw = p.getProperty("dbpw");
             Class.forName("dbclass");
             conn = DriverManager.getConnection(dburl, dbid, dbpw);
+            Statement stmt = conn.createStatement();
+            rs = stmt.executeQuery("select * from dba_tables");
+            while(rs.next()){
+                System.out.println(rs.getString(0));
+            }
         } catch (Exception e) {
             System.out.println(e);
             e.printStackTrace();
         }
     }
 
-    // 제품 조회 함수
-    public ArrayList<productVO> getList() throws IOException{
-        String SQL = "SELECT * FROM product WHERE productID>0";
+    // 제품 등록 함수
+    
 
-        ArrayList<productVO> list = new ArrayList<productVO>();
+    // 제품 조회 함수
+    public ArrayList<org_product> getList() throws IOException{
+        String SQL = "SELECT * FROM orgproduct WHERE productID>0";
+
+        ArrayList<org_product> list = new ArrayList<org_product>();
 
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -51,14 +57,14 @@ public class productDAO {
     }
 
     // 제품 등록 함수
-    public int productWrite(int productID, String oid, int productNumber, String productName) throws IOException {
-        String SQL = "INSERT INTO product VALUES (?, ?, ?, ?)";
+    public int productWrite(int productID, String Oid, int productNumber, String productName) throws IOException {
+        String SQL = "INSERT INTO orgproduct VALUES (?, ?, ?, ?)";
         
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
 
             pstmt.setInt(0, productID);
-            pstmt.setString(1, oid);
+            pstmt.setString(1, Oid);
             pstmt.setInt(2, productNumber);
             pstmt.setString(3, productName);
         } catch (Exception e) {

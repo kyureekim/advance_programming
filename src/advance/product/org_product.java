@@ -1,8 +1,9 @@
-package product;
+package advance.product;
 
-public class productVO {
+
+public class org_product {
     private int productID;
-    private String oid;
+    private String Oid;
     private int productNumber;
     private String productName;
 
@@ -14,12 +15,12 @@ public class productVO {
         this.productID = productID;
     }
 
-    public String getoid() {
+    public String getOid() {
         return this.oid;
     }
 
-    public void setoid(String Oid) {
-        this.oid = Oid;
+    public void setOid(String Oid) {
+        this.Oid = Oid;
     }
 
     public int getProductNumber() {

@@ -53,31 +53,27 @@ pageEncoding="UTF-8" %>
           <section>
             <!-- Content -->
             <h2 id="content">필요한 물품과 수량을 입력해주세요.</h2>
-            <div class="row">
-              <div class="col-3 col-12-small">
-                <h3>물품</h3>
-                <form method="post" action="#">
-                  <input
-                    type="text"
-                    name="product_name"
-                    id="product_name"
-                    placeholder="물품명을 입력하세요."
-                  />
-                </form>
+            <form method="post" action="product_apply_service.jsp">
+              <div class="row">
+                <div class="col-3 col-12-small">
+                  <h3>물품</h3>
+                    <input
+                      type="text"
+                      name="productName"
+                      placeholder="물품명을 입력하세요."
+                    />
+                </div>
+                <div class="col-3 col-12-small">
+                  <h3>수량</h3>
+                    <input
+                      type="text"
+                      name="productNumber"
+                      placeholder="물품개수를 입력하세요."
+                    />
+                </div>
               </div>
-              <div class="col-3 col-12-small">
-                <h3>수량</h3>
-                <form method="post" action="#">
-                  <input
-                    type="text"
-                    name="product_name"
-                    id="product_name"
-                    placeholder="물품명을 입력하세요."
-                  />
-                </form>
-              </div>
-            </div>
-            <a href="./product_show.jsp" class="button large">등록완료</a>
+              <input type="submit" value="등록완료" class="button large" />
+            </form>
           </section>
         </div>
       </div>
