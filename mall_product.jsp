@@ -20,32 +20,13 @@ pageEncoding="UTF-8" %>
         <div class="inner">
           <!-- Header -->
           <header id="header">
-            <h1>Mall</h1>
+            <h2>Mall</h2>
             <ul class="icons">
               <li>
-                <a href="#" class="icon brands fa-twitter"
-                  ><span class="label">Twitter</span></a
-                >
+                <a href="login.html"><span class="label">Login</span></a>
               </li>
               <li>
-                <a href="#" class="icon brands fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-snapchat-ghost"
-                  ><span class="label">Snapchat</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
-              </li>
-              <li>
-                <a href="#" class="icon brands fa-medium-m"
-                  ><span class="label">Medium</span></a
-                >
+                <a href="login.html"><span class="label">Logout</span></a>
               </li>
             </ul>
           </header>
@@ -110,13 +91,16 @@ pageEncoding="UTF-8" %>
               <h3>사용예정 포인트 :</h3>
             </div>
             <div class="modal-footer">
-              <button
+              <a href="./complete_buy.jsp" type="button" class="button large"
+                >포인트 차감하기</a
+              >
+              <!-- <button
                 type="button"
                 class="button large"
                 data-bs-dismiss="modal"
               >
                 포인트 차감하기
-              </button>
+              </button> -->
             </div>
           </div>
         </div>

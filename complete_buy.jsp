@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
   <head>
     <title>Elements - Editorial by HTML5 UP</title>
@@ -24,7 +19,7 @@ pageEncoding="UTF-8" %>
         <div class="inner">
           <!-- Header -->
           <header id="header">
-            <h2>마이페이지</h2>
+            <h2>구매완료</h2>
             <ul class="icons">
               <li>
                 <a href="login.html"><span class="label">Login</span></a>
@@ -38,55 +33,20 @@ pageEncoding="UTF-8" %>
           <!-- Content -->
           <section>
             <!-- Content -->
-            <div class="row">
-              <div class="col-6 col-12-small">
-                <div class="box">
-                  <h2><a name="myInfo">개인정보</a></h2>
-                  <p>
-                    단체이름 : <br />
-                    비밀번호 :
-                  </p>
-                </div>
-              </div>
-              <div class="col-6 col-12-small">
-                <div class="box">
-                  <h2><a name="orgPoint">포인트</a></h2>
-                  <p>
-                    기부받은 포인트 : <br />
-                    남은 포인트 :
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-12-small">
-              <div class="box">
-                <h2><a name="orgUsedPoint">포인트 사용내역</a></h2>
-                <p>
-                  2021.3.16 | 10000point 사용
-                  <button>공유서류 작성하기</button>
-                </p>
-                <p>
-                  2021.5.21 | 30000point 사용
-                  <button>공유서류 작성하기</button>
-                </p>
-              </div>
-            </div>
-            <div class="col-6 col-12-small">
-              <div class="box">
-                <h2><a name="orgProduct">물품 기부내역</a></h2>
-                <p>
-                  이민희 기부자님 | 칫솔100개 <br />
-                  서윤영 기부자님 | 샴푸50개
-                </p>
-              </div>
-            </div>
-
-            <hr class="major" />
+            <h2 id="content">물품 구매가 완료되었습니다.</h2>
+            <a
+              href="#"
+              class="button large"
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              >메인화면으로 가기</a
+            >
           </section>
         </div>
       </div>
 
-      <!-- Sidebar -->
       <div id="sidebar">
         <div class="inner">
           <!-- Menu -->
@@ -96,19 +56,15 @@ pageEncoding="UTF-8" %>
             </header>
             <ul>
               <h3>**아동복지센터님 환영합니다</h3>
-              <li><a href="generic.html">Homepage</a></li>
+              <li><a href="#">Homepage</a></li>
               <li><a href="product_show.jsp">기부받기</a></li>
               <li>
-                <a href="/org_mypage.jsp" class="opener">마이페이지</a>
+                <a href="#" class="opener">마이페이지</a>
                 <ul>
-                  <li><a href="/org_mypage.jsp#myInfo">개인정보</a></li>
-                  <li><a href="/org_mypage.jsp#orgPoint">포인트</a></li>
-                  <li>
-                    <a href="/org_mypage.jsp#orgUsedPoint">포인트 사용내역</a>
-                  </li>
-                  <li>
-                    <a href="/org_mypage.jsp#orgProduct">물품 기부내역</a>
-                  </li>
+                  <li><a href="#">마이페이지</a></li>
+                  <li><a href="#">마이페이지</a></li>
+                  <li><a href="#">마이페이지</a></li>
+                  <li><a href="#">마이페이지</a></li>
                 </ul>
               </li>
               <li><a href="#">메뉴</a></li>
