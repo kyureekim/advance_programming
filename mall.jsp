@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
   <head>
     <title>Editorial by HTML5 UP</title>
@@ -19,7 +24,7 @@ pageEncoding="UTF-8" %>
         <div class="inner">
           <!-- Header -->
           <header id="header">
-            <h1>신청한 기부물품</h1>
+            <h1>Mall</h1>
             <ul class="icons">
               <li>
                 <a href="#" class="icon brands fa-twitter"
@@ -51,35 +56,26 @@ pageEncoding="UTF-8" %>
 
           <!-- Section -->
           <section>
-            <header class="main">
-              <button class="button primary large" onclick="productClick()">
-                product
-              </button>
-              <button class="button primary large" onclick="talentClick()">
-                talent
-              </button>
-              <a href="./product_apply.jsp" class="button large">등록하기</a>
+            <header class="major">
+              <h2>포인트로 필요한 물품을 구매하세요!</h2>
             </header>
-          </section>
-
-          <section style="border-top: none" class="product">
             <div class="posts">
               <article>
-                <a href="#" class="image"
-                  ><img src="images/pic02.jpg" alt=""
+                <a href="./mall_product.jsp" class="image"
+                  ><img src="images/toothpaste.jpeg" alt=""
                 /></a>
-                <h3>단체</h3>
-                <p>물건</p>
+                <h3>치약</h3>
+                <p>1개당 7000원</p>
                 <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
+                  <li><a href="./mall_product.jsp" class="button">More</a></li>
                 </ul>
               </article>
               <article>
                 <a href="#" class="image"
                   ><img src="images/pic02.jpg" alt=""
                 /></a>
-                <h3>단체</h3>
-                <p>내용</p>
+                <h3>물건</h3>
+                <p>가격</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
@@ -88,8 +84,8 @@ pageEncoding="UTF-8" %>
                 <a href="#" class="image"
                   ><img src="images/pic03.jpg" alt=""
                 /></a>
-                <h3>단체</h3>
-                <p>내용</p>
+                <h3>물건</h3>
+                <p>가격</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
@@ -98,8 +94,8 @@ pageEncoding="UTF-8" %>
                 <a href="#" class="image"
                   ><img src="images/pic04.jpg" alt=""
                 /></a>
-                <h3>단체</h3>
-                <p>내용</p>
+                <h3>물건</h3>
+                <p>가격</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
@@ -108,8 +104,8 @@ pageEncoding="UTF-8" %>
                 <a href="#" class="image"
                   ><img src="images/pic05.jpg" alt=""
                 /></a>
-                <h3>단체</h3>
-                <p>내용</p>
+                <h3>물건</h3>
+                <p>가격</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
@@ -118,73 +114,8 @@ pageEncoding="UTF-8" %>
                 <a href="#" class="image"
                   ><img src="images/pic06.jpg" alt=""
                 /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-            </div>
-          </section>
-
-          <section style="border-top: none" class="talent">
-            <div class="posts">
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic03.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>재능</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic02.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic03.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic04.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic05.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic06.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
+                <h3>물건</h3>
+                <p>가격</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
@@ -194,7 +125,6 @@ pageEncoding="UTF-8" %>
         </div>
       </div>
 
-      <!-- Sidebar -->
       <div id="sidebar">
         <div class="inner">
           <!-- Menu -->
@@ -259,6 +189,5 @@ pageEncoding="UTF-8" %>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/apply.js"></script>
   </body>
 </html>
