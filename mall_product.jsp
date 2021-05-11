@@ -10,6 +10,7 @@ pageEncoding="UTF-8" %>
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="./assets/css/mall_product.css" rel="stylesheet" />
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
@@ -69,10 +70,55 @@ pageEncoding="UTF-8" %>
                     placeholder="구매하실 수량을 입력하세요."
                   />
                 </form>
-                <a href="#" class="button large">구매하기</a>
+                <a
+                  href="#"
+                  class="button large"
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  >구매하기</a
+                >
               </div>
             </div>
           </section>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">결제창</h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h2>{치약}</h2>
+              <h3>수랑 :</h3>
+              <h3>사용예정 포인트 :</h3>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="button large"
+                data-bs-dismiss="modal"
+              >
+                포인트 차감하기
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -140,5 +186,10 @@ pageEncoding="UTF-8" %>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
