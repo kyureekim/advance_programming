@@ -110,13 +110,16 @@ pageEncoding="UTF-8" %>
               <h3>사용예정 포인트 :</h3>
             </div>
             <div class="modal-footer">
-              <button
+              <a href="./complete_buy.jsp" type="button" class="button large"
+                >포인트 차감하기</a
+              >
+              <!-- <button
                 type="button"
                 class="button large"
                 data-bs-dismiss="modal"
               >
                 포인트 차감하기
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
