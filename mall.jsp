@@ -37,9 +37,9 @@ pageEncoding="UTF-8" %>
 
           <!-- Section -->
           <section>
-            <header class="major">
-              <h2>포인트로 필요한 물품을 구매하세요!</h2>
-            </header>
+            <!-- <header class="major"> -->
+            <h2 class="content">포인트로 필요한 물품을 구매하세요!</h2>
+            <!-- </header> -->
             <div class="posts">
               <article>
                 <a href="./mall_product.jsp" class="image"
