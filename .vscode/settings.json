@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\이슬기\\Downloads\\ojdbc10-full\\ojdbc10-full\\ojdbc10.jar"
+    ]
+}
