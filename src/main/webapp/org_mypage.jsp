@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
 <%@ page import="org.orgDAO" %>
-
+<%@ page import="document.documentDAO" %>
+<%@ page import="document.Document" %>
 <jsp:useBean id="org" class="org.Org" scope="page" />
+<jsp:useBean id="document" class="document.Document" scope="page" />
 
 <!DOCTYPE html>
 <!--
@@ -26,9 +28,14 @@ pageEncoding="UTF-8" %>
             	if (session.getAttribute("Oid") != null){
             		Oid = (String)session.getAttribute("Oid");
             	}
+            	
             	orgDAO orgDAO = new orgDAO();
             	org = orgDAO.getOid(Oid);
             	System.out.print("유저 : "+Oid);
+            	
+            	documentDAO documentDAO = new documentDAO();
+            	document = documentDAO.getdoc(Oid);
+            	int documentID = document.getDocumentID();
          %>
     <!-- Wrapper -->
     <div id="wrapper">
@@ -85,12 +92,16 @@ pageEncoding="UTF-8" %>
                 <h2><a name="orgUsedPoint">포인트 사용내역</a></h2>
                 <p>
                   2021.3.16 | 10000point 사용
+                  <%
+                  	if(documentID==0){
+                  %>
                   <button onclick="location.href='share_document.jsp'">공유서류 작성하기</button>
+                  <% } else { %>
+                  <div> <%=document.getDocumentURL() %> </div>
+                  <div> <%=document.getDocumentStatement() %></div>
+                  <% } %>
                 </p>
-                <p>
-                  2021.5.21 | 30000point 사용
-                  <button onclick="location.href='share_document.jsp'">공유서류 작성하기</button>
-                </p>
+                
               </div>
             </div>
             <div class="col-6 col-12-small">

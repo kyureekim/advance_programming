@@ -17,6 +17,7 @@ pageEncoding="UTF-8" %>
 	if (session.getAttribute("Oid") != null){
 		Oid = (String)session.getAttribute("Oid");
 	}
+	
   %>
     <!-- Wrapper -->
     <div id="wrapper">

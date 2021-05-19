@@ -32,7 +32,6 @@ public class orgDAO{
 			rs = pstmt.executeQuery();
 			if(rs.next()){
 				Org org = new Org();
-				System.out.print(rs.getString(1));
 				if(rs.getString(2).equals(orgPassword)){
 					org.setOid(rs.getString(1));
 					return 1; //로그인 성공
