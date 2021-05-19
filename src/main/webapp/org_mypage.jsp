@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%@ page import="org.orgDAO" %>
+
+<jsp:useBean id="org" class="org.Org" scope="page" />
 
 <!DOCTYPE html>
 <!--
@@ -18,6 +21,15 @@ pageEncoding="UTF-8" %>
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
+  		 <%
+            	String Oid =null;
+            	if (session.getAttribute("Oid") != null){
+            		Oid = (String)session.getAttribute("Oid");
+            	}
+            	orgDAO orgDAO = new orgDAO();
+            	org = orgDAO.getOid(Oid);
+            	System.out.print("유저 : "+Oid);
+         %>
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Main -->
@@ -27,12 +39,21 @@ pageEncoding="UTF-8" %>
           <header id="header">
             <h2>마이페이지</h2>
             <ul class="icons">
+            <% 
+            	if (Oid == null){
+            %>
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
+              <%
+            	} else {
+              %>
               <li>
-                <a href="login.html"><span class="label">Logout</span></a>
+                <a href="logout_service.jsp"><span class="label">Logout</span></a>
               </li>
+              <%
+            	}
+              %>
             </ul>
           </header>
 
@@ -44,8 +65,8 @@ pageEncoding="UTF-8" %>
                 <div class="box">
                   <h2><a name="myInfo">개인정보</a></h2>
                   <p>
-                    단체이름 : <br />
-                    비밀번호 :
+                    단체이름 : <%=org.getOrgName() %> <br />
+                    비밀번호 : <%=org.getOrgPassword() %>
                   </p>
                 </div>
               </div>
@@ -64,11 +85,11 @@ pageEncoding="UTF-8" %>
                 <h2><a name="orgUsedPoint">포인트 사용내역</a></h2>
                 <p>
                   2021.3.16 | 10000point 사용
-                  <button>공유서류 작성하기</button>
+                  <button onclick="location.href='share_document.jsp'">공유서류 작성하기</button>
                 </p>
                 <p>
                   2021.5.21 | 30000point 사용
-                  <button>공유서류 작성하기</button>
+                  <button onclick="location.href='share_document.jsp'">공유서류 작성하기</button>
                 </p>
               </div>
             </div>

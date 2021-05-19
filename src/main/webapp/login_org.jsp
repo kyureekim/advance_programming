@@ -32,10 +32,10 @@
 								<section id="banner">
 										<div class="col-12 col-2-medium">
                                             <h4>Log IN</h4>
-											<form method="post" action="login_org_service.jsp">
+											<form method="get" action="login_org_service.jsp">
 												<div class="row gtr-uniform">
 													<div class="col-6 col-12-xsmall">
-														<input type="text" name="Oid" id="Oid" value="" placeholder="id" />
+														<input type="email" name="Oid" id="Oid" value="" placeholder="email" />
 													</div>
 													<div class="col-6 col-12-xsmall">
 														<input type="password" name="orgPassword" id="orgPassword" value="" placeholder="password" />
