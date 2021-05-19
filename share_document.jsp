@@ -20,27 +20,33 @@ pageEncoding="UTF-8" %>
       <div id="main">
         <div class="inner">
           <header id="header">
-            <h2>공유서류</h2>
+            <h2>서류 작성하기</h2>
             <ul class="icons">
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
               <li>
-                <a href="login.html"><span class="label">Logout</span></a>
+                <a href="login_org.jsp"><span class="label">Logout</span></a>
               </li>
             </ul>
           </header>
 
           <!--Content-->
           <section>
-            <div>공유서류 내역은 사용자에게 공개됩니다.</div>
+            <div>작성하신 서류는 사용자에게 공개됩니다.</div>
             <br />
             <div class="col-6 col-12-small">
               <form>
                 <div class="box">
-                  <h2>기부내역</h2>
+                  <h2>공유서류</h2>
                   <p>date : 2021.5.10</p>
                   <input type="file" name="fileName" />
+                </div>
+                <div class="box">
+                  <h2>사유서</h2>
+                  <p>date : 2021.5.10</p>
+                  <textarea
+                  placeholder="사유를 작성해주세요."></textarea>
                 </div>
                 <button
                   type="submit"
@@ -48,7 +54,7 @@ pageEncoding="UTF-8" %>
                   name="fileSubmit"
                   style="float: right; margin-right: 10px"
                 >
-                  공유서류 등록
+                  서류등록
                 </button>
               </form>
             </div>
