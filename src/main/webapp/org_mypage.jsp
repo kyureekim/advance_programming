@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="org.orgDAO" %>
 <%@ page import="document.documentDAO" %>
 <%@ page import="document.Document" %>
@@ -35,7 +35,6 @@ pageEncoding="UTF-8" %>
             	
             	documentDAO documentDAO = new documentDAO();
             	document = documentDAO.getdoc(Oid);
-            	int documentID = document.getDocumentID();
          %>
     <!-- Wrapper -->
     <div id="wrapper">
@@ -91,16 +90,20 @@ pageEncoding="UTF-8" %>
               <div class="box">
                 <h2><a name="orgUsedPoint">포인트 사용내역</a></h2>
                 <p>
-                  2021.3.16 | 10000point 사용
-                  <%
-                  	if(documentID==0){
-                  %>
-                  <button onclick="location.href='share_document.jsp'">공유서류 작성하기</button>
-                  <% } else { %>
-                  <div> <%=document.getDocumentURL() %> </div>
-                  <div> <%=document.getDocumentStatement() %></div>
-                  <% } %>
+                  2021.3.16
                 </p>
+                  <%
+                  	if( document != null && document.getDocumentID()==1){
+                  %>
+                  <div>기부 물품 : <%=document.getProductName() %></div> <!-- 기부받은 물품 작성 -->
+                  <img src="https://lh3.googleusercontent.com/proxy/I55Sokymr7nfkqUmyrQMW4Bz6dV884JKb-gZey120A3-XIQlQPNK_S0ZWgJ4rbg5zyEtTc77wPJeX6Z38VD5tYReJp0PeyWUgHvO4kLfi7CZiamsLB0aWxc7pulECnKMbWtCe6XCQ2JBJhzC8wixnbgVcKi2HIA7DsiSbcM2alKR-ltq3UywYmIGZondocZ3HW1Hk0DB7oDB_1fOhqCiwNKRQp2gh4bG9qw1X-Txu-s86elnxAI5Zj8GnQYoxtQBi4dWvHcU7zrN0bfBBbzUxs68MdmJ6_rLaaeAqJsjUB0zX4bOVMEVwAful-9HSBEfay9v"/>
+                  <div>사유서 : <%=document.getDocumentStatement() %></div>
+                  <button onclick="location.href='delete_document_service.jsp'">삭제</button>
+                  <%
+                  	} else {
+                   	%>
+                  <button onclick="location.href='share_document.jsp'">공유서류 작성하기</button>
+                <% } %>
                 
               </div>
             </div>

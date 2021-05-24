@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%@ page import="product.productVO" %>
+<%@ page import="product.productDAO" %>
+<%@ page import="java.util.ArrayList" %>
+
+<jsp:useBean id="product" class="product.productVO" scope="page" />
 <!DOCTYPE html>
 <html>
   <head>
@@ -61,26 +66,26 @@ pageEncoding="UTF-8" %>
 
           <section style="border-top: none" class="product">
             <div class="posts">
+            	<% 
+                	productVO productVO = new productVO();
+                	productDAO productDAO = new productDAO();
+                	product = productDAO.getList();
+                	//ArrayList<productVO> List = new ArrayList<productVO>();
+                	//System.out.println(List);
+                	if (product != null) {
+                %>
               <article>
                 <a href="#" class="image"
                   ><img src="images/pic02.jpg" alt=""
                 /></a>
-                <h3>단체</h3>
-                <p>물건</p>
+                <h3><%=product.getOid() %></h3>
+                <p><%=product.getProductName() %></p>
+                <p><%=product.getProductNumber() %></p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
               </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic02.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
+              <% } %>
               <article>
                 <a href="#" class="image"
                   ><img src="images/pic03.jpg" alt=""

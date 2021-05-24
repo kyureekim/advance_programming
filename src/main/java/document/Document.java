@@ -3,15 +3,9 @@ package document;
 public class Document {
 	private int documentID;
 	private String Oid;
-	private String documentURL;
+	private String productName;
 	private String documentStatement;
 	
-	public String getDocumentStatement() {
-		return documentStatement;
-	}
-	public void setDocumentStatement(String documentStatement) {
-		this.documentStatement = documentStatement;
-	}
 	public int getDocumentID() {
 		return documentID;
 	}
@@ -24,11 +18,17 @@ public class Document {
 	public void setOid(String oid) {
 		Oid = oid;
 	}
-	public String getDocumentURL() {
-		return documentURL;
+	public String getProductName() {
+		return productName;
 	}
-	public void setDocumentURL(String documentURL) {
-		this.documentURL = documentURL;
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+	public String getDocumentStatement() {
+		return documentStatement;
+	}
+	public void setDocumentStatement(String documentStatement) {
+		this.documentStatement = documentStatement;
 	}
 	
 }

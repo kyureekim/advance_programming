@@ -25,16 +25,16 @@ public class documentDAO {
 		try {
 		    Class.forName(JDBC_DRIVER);
 		    conn = DriverManager.getConnection(DB_URL,USERNAME,PASSWORD);
-		    if(conn!= null) {System.out.print("성공");}
+		    if(conn!= null) {System.out.println("성공");}
 		} catch (Exception e) {
 		    System.out.println("Class Not Found Exection");
 		    e.printStackTrace();
 		}
 	}
 	
-	//공유 서류 조회
+	//공유 서류 조회 //맨 윗줄만 조회
 	public Document getdoc(String Oid) {
-		String SQL = "SELECT * FROM orgDocument WHERE Oid = ?";
+		String SQL = "SELECT * FROM orgDocument WHERE Oid = ? AND ROWNUM = 1";
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -46,9 +46,8 @@ public class documentDAO {
 				Document Document = new Document();
 				
 				Document.setDocumentID(rs.getInt(1));
-				Document.setDocumentURL(rs.getString(3));
+				Document.setProductName(rs.getString(3));
 				Document.setDocumentStatement(rs.getString(4));
-				System.out.println(Document.getDocumentStatement());
 				return Document;
 			}
 		} catch(Exception e){
@@ -59,7 +58,36 @@ public class documentDAO {
 	}
 	
 	//공유 서류 작성
-	public int write(int documentID, String Oid, String documentURL, String documentStatement) {
+	public int write(int documentID, String Oid, String productName, String documentStatement) {
+		String SQL = "INSERT INTO orgDocument(documentID, Oid, productName, documentStatement) VALUES (?, ?, ?, ?)";
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setInt(1, 1); //공유서류를 작성하면 무조건 documentID는 1이된다.
+			pstmt.setString(2, Oid);
+			pstmt.setString(3, productName);
+			pstmt.setString(4, documentStatement);
+			
+			return pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	public int delete(String productName) {
+		String SQL = "DELETE FROM orgDocument WHERE productName = ?";
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1, productName);
+			
+			return pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		return -1;
 	}
 }
