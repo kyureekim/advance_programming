@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%@ page import="product.productVO" %>
+<%@ page import="product.productDAO" %>
+<%@ page import="java.util.ArrayList" %>
+
+<jsp:useBean id="product" class="product.productVO" scope="page" />
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,6 +17,13 @@ pageEncoding="UTF-8" %>
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
+  <%
+  	String Oid =null;
+	if (session.getAttribute("Oid") != null){
+		Oid = (String)session.getAttribute("Oid");
+	}
+	
+  %>
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Main -->
@@ -21,12 +33,21 @@ pageEncoding="UTF-8" %>
           <header id="header">
             <h2>신청한 기부물품</h2>
             <ul class="icons">
+              <% 
+            	if (Oid == null){
+            	%>
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
+              <%
+            	} else {
+              %>
               <li>
-                <a href="login.html"><span class="label">Logout</span></a>
+                <a href="logout_service.jsp"><span class="label">Logout</span></a>
               </li>
+              <%
+            	}
+              %>
             </ul>
           </header>
 
@@ -45,26 +66,26 @@ pageEncoding="UTF-8" %>
 
           <section style="border-top: none" class="product">
             <div class="posts">
+            	<% 
+                	productVO productVO = new productVO();
+                	productDAO productDAO = new productDAO();
+                	product = productDAO.getList();
+                	//ArrayList<productVO> List = new ArrayList<productVO>();
+                	//System.out.println(List);
+                	if (product != null) {
+                %>
               <article>
                 <a href="#" class="image"
                   ><img src="images/pic02.jpg" alt=""
                 /></a>
-                <h3>단체</h3>
-                <p>물건</p>
+                <h3><%=product.getOid() %></h3>
+                <p><%=product.getProductName() %></p>
+                <p><%=product.getProductNumber() %></p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
               </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic02.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
+              <% } %>
               <article>
                 <a href="#" class="image"
                   ><img src="images/pic03.jpg" alt=""
