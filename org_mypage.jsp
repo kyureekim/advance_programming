@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<%@ page import="org.orgDAO" %>
+<%@ page import="document.documentDAO" %>
+<%@ page import="document.Document" %>
+<jsp:useBean id="org" class="org.Org" scope="page" />
+<jsp:useBean id="document" class="document.Document" scope="page" />
+
 <!DOCTYPE html>
 <!--
 	Editorial by HTML5 UP
@@ -17,6 +23,19 @@ pageEncoding="UTF-8" %>
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
+  		 <%
+            	String Oid =null;
+            	if (session.getAttribute("Oid") != null){
+            		Oid = (String)session.getAttribute("Oid");
+            	}
+            	
+            	orgDAO orgDAO = new orgDAO();
+            	org = orgDAO.getOid(Oid);
+            	System.out.print("유저 : "+Oid);
+            	
+            	documentDAO documentDAO = new documentDAO();
+            	document = documentDAO.getdoc(Oid);
+         %>
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Main -->
@@ -26,12 +45,21 @@ pageEncoding="UTF-8" %>
           <header id="header">
             <h2>마이페이지</h2>
             <ul class="icons">
+            <% 
+            	if (Oid == null){
+            %>
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
+              <%
+            	} else {
+              %>
               <li>
-                <a href="login.html"><span class="label">Logout</span></a>
+                <a href="logout_service.jsp"><span class="label">Logout</span></a>
               </li>
+              <%
+            	}
+              %>
             </ul>
           </header>
 
@@ -43,8 +71,8 @@ pageEncoding="UTF-8" %>
                 <div class="box">
                   <h2><a name="myInfo">개인정보</a></h2>
                   <p>
-                    단체이름 : <br />
-                    비밀번호 :
+                    단체이름 : <%=org.getOrgName() %> <br />
+                    비밀번호 : <%=org.getOrgPassword() %>
                   </p>
                 </div>
               </div>
@@ -62,13 +90,21 @@ pageEncoding="UTF-8" %>
               <div class="box">
                 <h2><a name="orgUsedPoint">포인트 사용내역</a></h2>
                 <p>
-                  2021.3.16 | 10000point 사용
-                  <button>공유서류 작성하기</button>
+                  2021.3.16
                 </p>
-                <p>
-                  2021.5.21 | 30000point 사용
-                  <button>공유서류 작성하기</button>
-                </p>
+                  <%
+                  	if( document != null && document.getDocumentID()==1){
+                  %>
+                  <div>기부 물품 : <%=document.getProductName() %></div> <!-- 기부받은 물품 작성 -->
+                  <img src="https://lh3.googleusercontent.com/proxy/I55Sokymr7nfkqUmyrQMW4Bz6dV884JKb-gZey120A3-XIQlQPNK_S0ZWgJ4rbg5zyEtTc77wPJeX6Z38VD5tYReJp0PeyWUgHvO4kLfi7CZiamsLB0aWxc7pulECnKMbWtCe6XCQ2JBJhzC8wixnbgVcKi2HIA7DsiSbcM2alKR-ltq3UywYmIGZondocZ3HW1Hk0DB7oDB_1fOhqCiwNKRQp2gh4bG9qw1X-Txu-s86elnxAI5Zj8GnQYoxtQBi4dWvHcU7zrN0bfBBbzUxs68MdmJ6_rLaaeAqJsjUB0zX4bOVMEVwAful-9HSBEfay9v"/>
+                  <div>사유서 : <%=document.getDocumentStatement() %></div>
+                  <button onclick="location.href='delete_document_service.jsp'">삭제</button>
+                  <%
+                  	} else {
+                   	%>
+                  <button onclick="location.href='share_document.jsp'">공유서류 작성하기</button>
+                <% } %>
+                
               </div>
             </div>
             <div class="col-6 col-12-small">
