@@ -85,6 +85,7 @@ public class productDAO {
             pstmt.setString(4, productName);
             
             return pstmt.executeUpdate();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

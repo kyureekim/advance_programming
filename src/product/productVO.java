@@ -2,6 +2,7 @@ package product;
 
 public class productVO {
     private int productID;
+
 	private String oid;
     private String productNumber;
     private String productName;
@@ -30,7 +31,5 @@ public class productVO {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-
-    
 
 }
