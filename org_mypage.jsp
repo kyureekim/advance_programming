@@ -132,7 +132,7 @@
             </header>
             <ul>
               <h3>**아동복지센터님 환영합니다</h3>
-              <li><a href="generic.html">Homepage</a></li>
+              <li><a href="/index.jsp">Homepage</a></li>
               <li><a href="product_show.jsp">기부받기</a></li>
               <li>
                 <a href="/org_mypage.jsp" class="opener">마이페이지</a>
@@ -147,20 +147,6 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
-              <li>
-                <span class="opener">메뉴</span>
-                <ul>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                </ul>
-              </li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
             </ul>
           </nav>
 

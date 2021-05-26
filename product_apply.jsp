@@ -69,31 +69,21 @@ pageEncoding="UTF-8" %>
             </header>
             <ul>
               <h3>**아동복지센터님 환영합니다</h3>
-              <li><a href="#">Homepage</a></li>
+              <li><a href="/index.jsp">Homepage</a></li>
               <li><a href="product_show.jsp">기부받기</a></li>
               <li>
-                <a href="#" class="opener">마이페이지</a>
+                <a href="/org_mypage.jsp" class="opener">마이페이지</a>
                 <ul>
-                  <li><a href="#">마이페이지</a></li>
-                  <li><a href="#">마이페이지</a></li>
-                  <li><a href="#">마이페이지</a></li>
-                  <li><a href="#">마이페이지</a></li>
+                  <li><a href="/org_mypage.jsp#myInfo">개인정보</a></li>
+                  <li><a href="/org_mypage.jsp#orgPoint">포인트</a></li>
+                  <li>
+                    <a href="/org_mypage.jsp#orgUsedPoint">포인트 사용내역</a>
+                  </li>
+                  <li>
+                    <a href="/org_mypage.jsp#orgProduct">물품 기부내역</a>
+                  </li>
                 </ul>
               </li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
-              <li>
-                <span class="opener">메뉴</span>
-                <ul>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                </ul>
-              </li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
             </ul>
           </nav>
 
