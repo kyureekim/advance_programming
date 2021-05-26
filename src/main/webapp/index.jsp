@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <!--
 	Editorial by HTML5 UP
@@ -27,7 +29,7 @@
             >
             <ul class="icons">
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
               <li>
                 <a href="login.html"><span class="label">Logout</span></a>

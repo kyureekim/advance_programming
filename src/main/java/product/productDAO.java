@@ -17,11 +17,9 @@ public class productDAO {
         String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe"; // DB 접속 주소
         String USERNAME = "orgteam"; // DB ID
         String PASSWORD = "orgteam"; // DB Password
-        System.out.print("User Table 접속 : ");
         try {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(DB_URL,USERNAME,PASSWORD);
-            if(conn!= null) {System.out.print("성공");}
         } catch (Exception e) {
             System.out.println("Class Not Found Exection");
             e.printStackTrace();
@@ -45,17 +43,36 @@ public class productDAO {
     	}
     	return 1; //디폴트 productID
     }
-
+    
+    // 개수 세는 함수
+    public int count() {
+    	String SQL = "SELECT count(*) FROM orgProduct";
+    	try {
+    		PreparedStatement pstmt = conn.prepareStatement(SQL);
+    		rs = pstmt.executeQuery();
+    		
+    		if(rs.next()) {
+    			int count = 0;
+    			count = rs.getInt(1);
+    			return count;
+    		}
+    		return 0;
+    	} catch(Exception e){
+    		e.printStackTrace();
+    	}
+    	return -1;
+    }
     
     // 제품을 리스트대로 출력하는 함수
-    public productVO getList() throws IOException{
-        String SQL = "SELECT * FROM orgproduct WHERE productID = ?";
+    public productVO getList(int productID) throws IOException{
+        String SQL = "SELECT productID, Oid, productNumber, productName FROM orgproduct WHERE productID = ?";
         
         try {
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             
-            pstmt.setInt(1, 1);
+            pstmt.setInt(1,productID);
             rs = pstmt.executeQuery();
+            System.out.println(productID);
             while(rs.next()) {
             	productVO productVO = new productVO();
             	
@@ -63,6 +80,7 @@ public class productDAO {
             	productVO.setOid(rs.getString(2));
             	productVO.setProductNumber(rs.getString(3));
             	productVO.setProductName(rs.getString(4));
+            	System.out.println("수량"+productVO.getProductNumber());
             	
             	return productVO;
             }

@@ -8,7 +8,7 @@ pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Editorial by HTML5 UP</title>
+    <title>투명한 기부 플랫폼</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -67,12 +67,12 @@ pageEncoding="UTF-8" %>
           <section style="border-top: none" class="product">
             <div class="posts">
             	<% 
-                	productVO productVO = new productVO();
                 	productDAO productDAO = new productDAO();
-                	product = productDAO.getList();
-                	//ArrayList<productVO> List = new ArrayList<productVO>();
-                	//System.out.println(List);
-                	if (product != null) {
+                	int count = productDAO.count();
+                	if (count != 0) {
+                		for(int i=1; i < count+1; i++){
+                			productVO productVO = new productVO();
+                			product = productDAO.getList(i);
                 %>
               <article>
                 <a href="#" class="image"
@@ -85,48 +85,10 @@ pageEncoding="UTF-8" %>
                   <li><a href="#" class="button">More</a></li>
                 </ul>
               </article>
-              <% } %>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic03.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic04.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic05.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic06.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-            </div>
+              <% 		}
+              		}
+              %>
+           </div>
           </section>
 
           <section style="border-top: none" class="talent">

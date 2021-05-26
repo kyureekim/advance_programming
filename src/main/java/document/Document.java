@@ -5,6 +5,8 @@ public class Document {
 	private String Oid;
 	private String productName;
 	private String documentStatement;
+	private String MPid;
+	private int point;
 	
 	public int getDocumentID() {
 		return documentID;
@@ -29,6 +31,18 @@ public class Document {
 	}
 	public void setDocumentStatement(String documentStatement) {
 		this.documentStatement = documentStatement;
+	}
+	public String getMPid() {
+		return MPid;
+	}
+	public void setMPid(String mPid) {
+		MPid = mPid;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
 	}
 	
 }

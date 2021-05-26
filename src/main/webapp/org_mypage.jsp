@@ -135,7 +135,7 @@
               <li><a href="generic.html">Homepage</a></li>
               <li><a href="product_show.jsp">기부받기</a></li>
               <li>
-                <a href="/org_mypage.jsp" class="opener">마이페이지</a>
+                <a href="#" class="opener">마이페이지</a>
                 <ul>
                   <li><a href="/org_mypage.jsp#myInfo">개인정보</a></li>
                   <li><a href="/org_mypage.jsp#orgPoint">포인트</a></li>

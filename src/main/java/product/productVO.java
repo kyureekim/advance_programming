@@ -3,8 +3,9 @@ package product;
 public class productVO {
     private int productID;
 	private String oid;
-    private String productNumber;
+	private String productNumber;
     private String productName;
+    private String MPid;
     
     public int getProductID() {
 		return productID;
@@ -30,7 +31,12 @@ public class productVO {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-
+	public String getMPid() {
+		return MPid;
+	}
+	public void setMPid(String mPid) {
+		MPid = mPid;
+	}
     
 
 }
