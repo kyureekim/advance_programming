@@ -2,6 +2,8 @@ package product;
 
 public class productVO {
     private int productID;
+
+
 	private String oid;
     private String productNumber;
     private String productName;
@@ -31,6 +33,9 @@ public class productVO {
 		this.productName = productName;
 	}
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 90b4993f020c9ffa5293aaaf76d57b9e3b6f5b14
 }

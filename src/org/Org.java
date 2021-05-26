@@ -23,5 +23,4 @@ public class Org {
 	public void setOrgName(String orgName) {
 		this.orgName = orgName;
 	}
-	
 }

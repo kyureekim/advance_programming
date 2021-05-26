@@ -25,11 +25,7 @@ import="java.io.PrintWriter" %> <% request.setCharacterEncoding("UTF-8"); %>
     <script>
       ");
                   script.println("alert('기부 단체로 로그인을 하세요.')");
-      <<<<<<< HEAD
-                  script.println("location.href='login_a.jsp'");
-      =======
                   script.println("location.href='login_org.jsp'");
-      >>>>>>> 175576fa9c7203164128d04c7962208be5d4a4be
                   script.println("
     </script>
     "); } else { if ( //product.getProductNumber() == null ||
@@ -41,21 +37,16 @@ import="java.io.PrintWriter" %> <% request.setCharacterEncoding("UTF-8"); %>
                       script.println("history.back()");
                       script.println("
     </script>
-    "); } else { productDAO productDAO = new productDAO(); <<<<<<< HEAD int
-    result = productDAO.productWrite(product.getProductID(), product.getoid(),
-    product.getProductNumber(), product.getProductName()); ======= int result =
-    productDAO.productWrite(Oid, productNumber, productName); >>>>>>>
-    175576fa9c7203164128d04c7962208be5d4a4be if(result == -1) { PrintWriter
-    script =response.getWriter(); script.println("
+    "); } else { productDAO productDAO = new productDAO(); int result =
+    productDAO.productWrite(Oid, productNumber, productName); if(result == -1) {
+    PrintWriter script =response.getWriter(); script.println("
     <script>
       ");
                           script.println("alert('글쓰기에 실패했습니다.')");
                           script.println("history.back()");
                           script.println("
     </script>
-    "); <<<<<<< HEAD } else { ======= } else{ >>>>>>>
-    175576fa9c7203164128d04c7962208be5d4a4be PrintWriter script
-    =response.getWriter(); script.println("
+    "); } else{ PrintWriter script =response.getWriter(); script.println("
     <script>
       ");
                           script.println("location.href='product_show.jsp'");

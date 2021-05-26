@@ -36,16 +36,14 @@ import="java.sql.*" %> <%@ page import="org.orgDAO" %>
       		script.println("history.back()");
       		script.println("
     </script>
-    "); <<<<<<< HEAD } //DB오류 else if(result == -2){ ======= } //DB오류 else
-    if(result == -2){ >>>>>>> 175576fa9c7203164128d04c7962208be5d4a4be
-    PrintWriter script = response.getWriter(); script.println("
+    "); } //DB오류 else if(result == -2){ PrintWriter script =
+    response.getWriter(); script.println("
     <script>
       ");
       		script.println("alert('DB오류가 발생했습니다.')");
       		script.println("history.back()");
       		script.println("
     </script>
-    "); <<<<<<< HEAD } ======= } >>>>>>>
-    175576fa9c7203164128d04c7962208be5d4a4be %>
+    "); } %>
   </body>
 </html>
