@@ -28,21 +28,26 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 			</header>
 
 
-			<!-- Banner -->
-			<section id="banner">
-				<div class="col-12 col-2-medium">
-					<h4>Log IN</h4>
-					<form method="get" action="login_org_service.jsp">
-						<div class="row gtr-uniform">
-							<div class="col-6 col-12-xsmall">
-								<input type="email" name="Oid" id="Oid" value="" placeholder="email" />
-							</div>
-							<div class="col-6 col-12-xsmall">
-								<input type="password" name="orgPassword" id="orgPassword" value="" placeholder="password" />
-							</div>
-							<td colspan="2"><div align="center">
-								<INPUT TYPE="SUBMIT" NAME="Submit" VALUE="login">
-								<INPUT TYPE="RESET" VALUE="cancle"></td>
+
+							<!-- Banner -->
+								<section id="banner">
+										<div class="col-12 col-2-medium">
+                                            <h4>Log IN</h4>
+											<form method="get" action="login_org_service.jsp">
+												<div class="row gtr-uniform">
+													<div class="col-6 col-12-xsmall">
+														<input type="email" name="Oid" id="Oid" value="" placeholder="email" />
+													</div>
+													<div class="col-6 col-12-xsmall">
+														<input type="password" name="orgPassword" id="orgPassword" value="" placeholder="password" />
+													</div>
+                                                    <td colspan="2"><div align="center">
+                                                        <INPUT TYPE="SUBMIT" NAME="Submit" VALUE="login">
+                                                        <INPUT TYPE="RESET" VALUE="cancle"></td>
+												</div>
+											</form>
+										</div>
+								</section>
 						</div>
 					</form>
 				</div>
@@ -95,5 +100,5 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 
-</body>
+	</body>
 </html>

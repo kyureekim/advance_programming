@@ -41,6 +41,7 @@ pageEncoding="UTF-8" %>
                     <input
                       type="text"
                       name="productName"
+                      id="productName"
                       placeholder="물품명을 입력하세요."
                     />
                 </div>

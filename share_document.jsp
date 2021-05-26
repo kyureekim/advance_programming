@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%@ page import="document.Document" %>
+<%@ page import="document.documentDAO" %>
 <!DOCTYPE html>
 <!--
 	Editorial by HTML5 UP
@@ -15,6 +17,13 @@ pageEncoding="UTF-8" %>
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
+  <%
+  	String Oid =null;
+	if (session.getAttribute("Oid") != null){
+		Oid = (String)session.getAttribute("Oid");
+	}
+	Document document = new Document();
+  %>
     <!--Wrapper-->
     <div id="wrapper">
       <div id="main">
@@ -36,11 +45,19 @@ pageEncoding="UTF-8" %>
             <div>작성하신 서류는 사용자에게 공개됩니다.</div>
             <br />
             <div class="col-6 col-12-small">
-              <form>
+              <form method="post" action="share_document_service.jsp">
                 <div class="box">
                   <h2>공유서류</h2>
                   <p>date : 2021.5.10</p>
-                  <input type="file" name="fileName" />
+                  <input type="file"/> <!-- 프론트에만 박아둘 부분 -->
+                </div>
+                <div class="box">
+                  <h2>사유서</h2>
+                  <p>date : 2021.5.10</p>
+                  <textarea
+                  	placeholder="사유를 작성해주세요."
+                  	name="documentStatement"
+                  	id="documentStatement"></textarea>
                 </div>
                 <div class="box">
                   <h2>사유서</h2>
@@ -50,8 +67,6 @@ pageEncoding="UTF-8" %>
                 </div>
                 <button
                   type="submit"
-                  id="fileSubmit"
-                  name="fileSubmit"
                   style="float: right; margin-right: 10px"
                 >
                   서류등록

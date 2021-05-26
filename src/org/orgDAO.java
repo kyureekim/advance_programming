@@ -33,11 +33,8 @@ public class orgDAO{
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, Oid); //아이디 가져오기
 			rs = pstmt.executeQuery();
-			System.out.println(Oid);
-			System.out.println(orgPassword);
 			if(rs.next()){
 				Org org = new Org();
-				System.out.print(rs.getString(1));
 				if(rs.getString(2).equals(orgPassword)){
 					org.setOid(rs.getString(1));
 					return 1; //로그인 성공
@@ -55,28 +52,28 @@ public class orgDAO{
 	//단체 유저 조회 함수(마이페이지에 써먹을 거)
 	public Org getOid(String Oid) {
 		String SQL = "SELECT * FROM organization WHERE Oid = ?";
-
+		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-
+			
 			pstmt.setString(1, Oid);
 			rs = pstmt.executeQuery();
-
+			
 			while (rs.next()) {
 				Org org = new Org();
-
+				
 				org.setOid(rs.getString(1));
 				org.setOrgPassword(rs.getString(2));
 				org.setOrgName(rs.getString(3));
-
+				
 				return org;
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		return null;
 	}
-
-
+	
+	
 }
