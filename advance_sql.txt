@@ -1,0 +1,167 @@
+
+CREATE TABLE donation
+(
+	MPid                  VARCHAR(20)  NOT NULL ,
+	Oid                   VARCHAR(20)  NOT NULL ,
+	use_point             NUMBER  NOT NULL ,
+	inform                VARCHAR(70)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKdonation ON donation
+(MPid  ASC,Oid  ASC,use_point  ASC);
+
+
+
+ALTER TABLE donation
+	ADD CONSTRAINT  XPKdonation PRIMARY KEY (MPid,Oid,use_point);
+
+
+
+CREATE TABLE Member_ad
+(
+	MPid                  VARCHAR(20)  NOT NULL ,
+	password              VARCHAR(20)  NULL ,
+	point                 NUMBER  NULL ,
+	M_name                VARCHAR(30)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKMember_ad ON Member_ad
+(MPid  ASC);
+
+
+
+ALTER TABLE Member_ad
+	ADD CONSTRAINT  XPKMember_ad PRIMARY KEY (MPid);
+
+////////////// 단체측에서 만든 단체 테이블로 바꾸겠습니다!///////////////
+
+CREATE TABLE organization
+(
+	Oid                   VARCHAR(20)  NOT NULL ,
+	o_name                VARCHAR(20)  NULL ,
+	address               VARCHAR(30)  NULL ,
+	phone                 VARCHAR(30)  NULL ,
+	o_need_point          CHAR(18)  NULL ,
+	o_point               CHAR(18)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKorganization ON organization
+(Oid  ASC);
+
+
+
+ALTER TABLE organization
+	ADD CONSTRAINT  XPKorganization PRIMARY KEY (Oid);
+
+////////////////////////////////////////////////////
+
+CREATE TABLE talent
+(
+	MPid                  VARCHAR(20)  NOT NULL ,
+	talent_name           VARCHAR(30)  NOT NULL ,
+	time                  VARCHAR(30)  NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKtalent ON talent
+(MPid  ASC,talent_name  ASC);
+
+
+
+ALTER TABLE talent
+	ADD CONSTRAINT  XPKtalent PRIMARY KEY (MPid,talent_name);
+
+
+
+ALTER TABLE donation
+	ADD (CONSTRAINT  R_1 FOREIGN KEY (MPid) REFERENCES Member_ad(MPid));
+
+
+
+ALTER TABLE donation
+	ADD (CONSTRAINT  R_2 FOREIGN KEY (Oid) REFERENCES organization(Oid));
+
+
+
+ALTER TABLE talent
+	ADD (CONSTRAINT  R_3 FOREIGN KEY (MPid) REFERENCES Member_ad(MPid));
+
+
+
+// 단체 테이블
+
+
+CREATE TABLE organization
+(
+	Oid         	  NUMBER  NOT NULL,
+	orgPassword 	  VARCHAR(20) NOT NULL,
+	orgName       	  VARCHAR(20) NOT NULL,
+	orgAddress		  VARCHAR(30) NULL,
+	orgPhone		  VARCHAR(20) NULL,
+	org_point		  NUMBER   	NULL,
+	org_need_point    NUMBER	NULL
+);
+
+
+CREATE UNIQUE INDEX XPKorganization ON organization
+(Oid ASC, orgPassword ASC, orgName ASC);
+
+
+ALTER TABLE organization
+	ADD CONSTRAINT XPKorganization PRIMARY KEY(Oid);
+
+
+
+CREATE TABLE orgproduct
+(
+	productID             NUMBER  NOT NULL ,
+	Oid                   VARCHAR(20)  NOT NULL ,
+	productNumber         NUMBER  NOT NULL ,
+	ProductName           VARCHAR(20)  NOT NULL 
+);
+
+
+CREATE UNIQUE INDEX XPKorgproduct ON orgproduct
+(Oid ASC, productNumber ASC, ProductName ASC);
+
+
+ALTER TABLE orgproduct
+	ADD CONSTRAINT XPKorgproduct PRIMARY KEY(Oid);
+
+
+ALTER TABLE orgproduct
+	ADD (CONSTRAINT R_4 FOREIGN KEY(Oid) REFERENCES organization(Oid));
+
+
+CREATE TABLE orgmall
+(
+	mallProductID         NUMBER  NOT NULL,
+	mallProductNumber 	  NUMBER,
+	mallProductName       VARCHAR(20)  NOT NULL,
+);
+
+CREATE UNIQUE INDEX XPKorgmall ON orgmall
+(mallProductID ASC, mallProductName ASC)
+
+
+
+CREATE TABLE orgDocument
+(
+	documentID            NUMBER  NOT NULL ,
+	Oid                   VARCHAR(20)  NOT NULL
+);
+
+
+CREATE UNIQUE INDEX XPKorgDocument ON orgDocument
+(documentID ASC);
+
+
+ALTER TABLE orgDocument
+	ADD (CONSTRAINT R_5 FOREIGN KEY(Oid) REFERENCES organization(Oid));

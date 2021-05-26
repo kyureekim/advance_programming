@@ -1,35 +1,71 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ page import="java.sql.*"%>
-<%
-    //³» db Á¢¼Ó¿¡ »ç¿ëÇÒ conn º¯¼ö
-    Connection conn = null;
-    //¿À¶óÅ¬ µå¶óÀÌ¹ö °æ·Î ¼³Á¤
-    String driver = "oracle.jdbc.driver.OracleDriver";
-    //³» dbÀÇ °èÁ¤ °æ·Î ¼³Á¤
-    String url = "jdbc:oracle:thin:@localhost:1521:xe";
-    //Á¢¼Ó ¼º°ø,½ÇÆÐ ¿©ºÎ »ç¿ë½Ã ¾²´Â º¯¼ö
-    Boolean connect = false;
-    
-    //db Á¢¼Ó ÄÚµå´Â ¹Ýµå½Ã try~catch¹® ¾È¿¡ ½áÁà¾ßÇÔ
-    try {
-        //¿À¶óÅ¬ µå¶óÀÌ¹ö Á¢¼Ó
-        Class.forName(driver);
-        //³» db Á¢¼Ó
-        conn = DriverManager.getConnection(url, "kim", "1234");
-        //Á¢¼Ó¼º°ø½Ã true ¼³Á¤
-        connect = true;
-        //Á¢¼Ó ²÷±â, ²÷´Â ÀÌÀ¯ : Ç×»ó db°¡ ¿¬°áµÇ¾î ÀÖÀ¸¸é Á¢¼Ó ¿À·ù ¹× µ¥ÀÌÅÍ Ãæµ¹ÀÌ ÀÏ¾î³ª±â ¶§¹® 
-        conn.close();
-    } catch (Exception e) {
-        //Á¢¼Ó ½ÇÆÐ½Ã false Àâ°í ¿¹¿ÜÃ³¸®ÇØÁÜ
-        connect = false;
-        e.printStackTrace();
-    }
-%>
-<%
-if(connect==true){%>
-    ¿¬°áµÇ¾ú½À´Ï´Ù.
-<%}else{ %>
-    ¿¬°á¿¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù.
-<%}%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.ResultSet"%>
+<%!// ë³€ìˆ˜ ì„ ì–¸
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	String uid = "kim";
+	String pwd = "1234";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String sql = "select * from organizaion";
+%> 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<%
+		try {
+			// ë°ì´í„°ë² ì´ìŠ¤ë¥¼ ì ‘ì†í•˜ê¸° ìœ„í•œ ë“œë¼ì´ë²„ SW ë¡œë“œ
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			// ë°ì´í„°ë² ì´ìŠ¤ì— ì—°ê²°í•˜ëŠ” ìž‘ì—… ìˆ˜í–‰
+			conn = DriverManager.getConnection(url, "kim", "1234");
+			// ì¿¼ë¦¬ë¥¼ ìƒì„±gkf ê°ì²´ ìƒì„±
+			stmt = conn.createStatement();
+			// ì¿¼ë¦¬ ìƒì„±
+			rs = stmt.executeQuery(sql);
+	%>
+	<table border="1">
+		<tr>
+			<td>ì´ë¦„</td>
+			<td>ì•„ì´ë””</td>
+			<td>ì•”í˜¸</td>
+		</tr>
+		<%
+			while (rs.next()) {
+		%>
+		<tr>
+			<td><%=rs.getString("OID")%></td>
+			<td><%=rs.getString("ORGPASSWORD")%></td>
+			<td><%=rs.getString("ORGNAME")%></td>
+		</tr>
+	
+
+	<%
+			}
+		} catch (Exception e) {
+		e.printStackTrace();
+		} finally {
+		try {
+		if (rs != null) {
+			rs.close();
+		}
+		if (stmt != null) {
+			stmt.close();
+		}
+		if (conn != null) {
+			conn.close();
+		}
+		} catch (Exception e) {
+		e.printStackTrace();
+		}
+		}
+	%>
+	</table>
+</body>
+</html>

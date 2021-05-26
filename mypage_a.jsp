@@ -34,7 +34,7 @@
 									<ul class="icons">
 										<%=log%>
 									</ul>
-
+									
 								</header>
 
 
@@ -50,7 +50,7 @@
 												String mySQL = null;
 												
 												String driver="oracle.jdbc.driver.OracleDriver";
-												String url= "jdbc:oracle:thin:@localhost:xe";
+												String url= "jdbc:oracle:thin:@210.94.199.20:1521:dblab";
 												Boolean connect =false;
 												try{
 													 Class.forName(driver);
@@ -74,7 +74,7 @@
 												<li>password: <%=password%></li>
 											</ul>
 										</div>
-
+										
 										<div class="col-12 col-2-medium">
 											<h4>포인트 조회/충전</h4>
 											<FORM method="post" action="point_update.jsp"  align="left">

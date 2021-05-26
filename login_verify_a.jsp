@@ -9,11 +9,11 @@ Statement stmt = null;
 String mySQL = null;
 
 String driver="oracle.jdbc.driver.OracleDriver";
-String url= "jdbc:oracle:thin:@210.94.199.20:1521:dblab";
+String url= "jdbc:oracle:thin:@localhost:1521:xe";
 Boolean connect =false;
 try{
      Class.forName(driver);
-     myConn= DriverManager.getConnection(url,"ST2019112010" ,"ST2019112010" );
+     myConn= DriverManager.getConnection(url,"kim" ,"1234" );
      connect=true;
   }catch(Exception e){ 
     connect=false;

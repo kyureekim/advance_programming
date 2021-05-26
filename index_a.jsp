@@ -2,11 +2,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <%@ page import="java.sql.*" %>
 <!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>투명한 기부</title>
@@ -15,7 +11,10 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="is-preload">
-
+		<%
+		String session_id = (String)session.getAttribute("user");
+		String session_name  = (String)session.getAttribute("name");
+		%>
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Main -->
@@ -24,28 +23,38 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index_a.jsp" class="logo"><strong>기부</strong> &nbsp'나만의 투명한 기부 참여'</a>
+									<%
+										String tmp_name;
+										String log;
+										if (session_id==null) log="<a href=login_a.jsp>log in</a>"; else log="<a href=logout.jsp>log out</a>";
+										if (session_id!=null) tmp_name=session_name; else tmp_name="여러분";
+										%>
+									<a href="index_a.jsp" class="logo"><strong>기부</strong> &nbsp'<%=tmp_name%>님의 투명한 기부 참여'</a>
+									<ul class="icons">
+										<li><%=log%></li>
+									</ul>
+									
 								</header>
 
 
 							<!-- Banner -->
 								<section id="banner">
-										<div class="col-12 col-2-medium">
-                                            <h4>Log IN</h4>
-											<form method="post" action="login_verify_a.jsp">
-												<div class="row gtr-uniform">
-													<div class="col-6 col-12-xsmall">
-														<input type="email" name="email" id="email" value="" placeholder="email" />
-													</div>
-													<div class="col-6 col-12-xsmall">
-														<input type="password" name="password" id="password" value="" placeholder="password" />
-													</div>
-                                                    <td colspan=2><div align="center">
-                                                        <INPUT TYPE="SUBMIT" NAME="Submit" VALUE="login">
-                                                        <INPUT TYPE="RESET" VALUE="cancle"></td>
-												</div>
-											</form>
-										</div>
+									<div class="content">
+										<header>
+											<h2><font size="10">'No embezzlement donation'</font> </h2>
+											<h2><font size="5">투명한 기부하기</font> </h2>
+											<p>누구든지 물품, 포인트로 기부하는 </p>
+										</header>
+										<p>'투명한 기부 플랫폼'은 기존 기부 플랫폼은 현금으로 기부를 해서 기부받은 물품을 기부단체가 개인자산으로 횡령하는 사건이 많았고 그것으로 기부자들이 기부단체를 신뢰하지 못하는 문제가 발생하여 기부문화가 크게 위축되었다. 물품과 포인트를 통한 기부 방식을 통해서 기부를 받은 단체가 개인자산으로 횡령하는
+											것을 막고 공유문서를 통해 기부내역을 공개하여 청렴한 기부금 운영방식을 운영하여 기부자로부터 믿음을 얻어 기부자가 마음 높고 기부할 수 있는 기부문화를 구축한다.
+											</p>
+										<ul class="actions">
+											<li><a href="#" class="button big">더 알아보기</a></li>
+										</ul>
+									</div>
+									<span class="image object">
+										<img src="images/pic10.jpg" alt="" />
+									</span>
 								</section>
 						</div>
 					</div>
@@ -56,7 +65,7 @@
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
-										<h2><a href="index_a.jsp">~~~~ donation</a></h2>
+										<h2><a href="index_a.jsp">NE donation</a></h2>
 									</header>
 									<ul>
 										<li><span class="opener">MY PAGE</span>
@@ -82,7 +91,6 @@
 										Seoul, Republic of Korea</li>
 									</ul>
 								</section>
-							<!-- Footer -->
 						</div>
 					</div>
 

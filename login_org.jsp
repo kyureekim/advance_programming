@@ -32,15 +32,15 @@
 								<section id="banner">
 										<div class="col-12 col-2-medium">
                                             <h4>Log IN</h4>
-											<form method="post" action="login_verify_a.jsp">
+											<form method="get" action="login_org_service.jsp">
 												<div class="row gtr-uniform">
 													<div class="col-6 col-12-xsmall">
-														<input type="email" name="email" id="email" value="" placeholder="email" />
+														<input type="email" name="Oid" id="Oid" value="" placeholder="email" />
 													</div>
 													<div class="col-6 col-12-xsmall">
-														<input type="password" name="password" id="password" value="" placeholder="password" />
+														<input type="password" name="orgPassword" id="orgPassword" value="" placeholder="password" />
 													</div>
-                                                    <td colspan=2><div align="center">
+                                                    <td colspan="2"><div align="center">
                                                         <INPUT TYPE="SUBMIT" NAME="Submit" VALUE="login">
                                                         <INPUT TYPE="RESET" VALUE="cancle"></td>
 												</div>
