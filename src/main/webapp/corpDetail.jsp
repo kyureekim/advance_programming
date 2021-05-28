@@ -1,4 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page import="product.productVO" %>
+<%@ page import="product.productDAO" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.sql.*" %>
+
+<%
+	String id = request.getParameter("id");
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	String uid = "orgteam";
+	String pwd = "orgteam";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String sql = "select * from orgproduct A, organization B where A.oid = " + "'" + id + "'" + " and B.oid = " + "'" + id + "'";
+	String group = null;
+%> 
+
 <!DOCTYPE HTML>
 <!--
    Editorial by HTML5 UP
@@ -11,10 +28,19 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
-
+	  <script type="text/javascript">
+		function button_event(){
+				if (confirm("선택한 물품을 보내시겠어요?") == true){    //확인
+						///체크박스 비활성화
+    							document.location.href="reviewing.jsp";
+					}else{   //취소
+    					return;
+					}
+		}
+	</script>
    </head>
    <body class="is-preload">
-
+   
       <!-- Wrapper -->
          <div id="wrapper">
             <!-- Main -->
@@ -36,34 +62,109 @@
             <header class="main">               
             </header>
             
+             <%
+					try {
+						// 데이터베이스를 접속하기 위한 드라이버 SW 로드
+						Class.forName("oracle.jdbc.driver.OracleDriver");
+						// 데이터베이스에 연결하는 작업 수행
+						conn = DriverManager.getConnection(url, "kim", "1234");
+						// 쿼리를 생성gkf 객체 생성
+						stmt = conn.createStatement();
+						// 쿼리 생성
+						rs = stmt.executeQuery("select distinct orgname from organization where oid = " + "'" + id + "'");
+					%>
+
+					<%
+						if (rs.next()) {
+							group = rs.getString("orgname");
+						}
+					} catch (Exception e) {
+					e.printStackTrace();
+					} finally {
+					try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (stmt != null) {
+						stmt.close();
+					}
+					if (conn != null) {
+						conn.close();
+					}
+					} catch (Exception e) {
+					e.printStackTrace();
+					}
+					}
+			%>
+            
             
             <div class="corpInfo" style="padding:15px; height: auto; width: 100%; border:3px solid #f56a6a; border-radius:3%">
-               <h3><br/>"단체명"<br/></h3>
+               <h3><br/><%=group%><br/></h3>
                
                <div class="aboutCorp">
                   <div class="form-group col-sm-6">
-                     <div class="image">
-                        <img src="images/pic02.jpg" alt="" align="left">우리단체는 어쩌구<br clear="left">
+                     <div class="image" style="font-size:20px">
+                        <img src="images/vol1.jpg" alt="" align="left">우리단체는 아이를 사랑하는 보육원으로서 <br>아이들의 행복한 미래를 지원합니다.<br clear="left">
                      </div>
                     </div>
                </div>                          
                
                <div class="checkStuffs">
-                  <h4><br>기부를 원하는 물품을 선택해주세요</h4>                              
-                     <input type="checkbox" id="product">
-                       <label for="product">옷 10벌</label>  
-                    <input type="checkbox" id="2">
-                     <label for="2">기저귀 10개</label>  
-                     <input type="checkbox" id="3">
-                     <label for="3">화장지 100개</label>  
-                     <input type="checkbox" id="4">
-                     <label for="4">물티슈 20개</label>
-            </div>                  
+                  <h4><br>기부를 원하는 물품을 선택해주세요</h4> 
+                  
+                   <%
+					try {
+						// 데이터베이스를 접속하기 위한 드라이버 SW 로드
+						Class.forName("oracle.jdbc.driver.OracleDriver");
+						// 데이터베이스에 연결하는 작업 수행
+						conn = DriverManager.getConnection(url, "kim", "1234");
+						// 쿼리를 생성gkf 객체 생성
+						stmt = conn.createStatement();
+						// 쿼리 생성
+						rs = stmt.executeQuery(sql);
+					%>
+
+					<%
+						while (rs.next()) {
+					%>
+					<input type="checkbox">
+                    <label><%=rs.getString("productname")%></label>  
+	
+					<%
+						}
+					} catch (Exception e) {
+					e.printStackTrace();
+					} finally {
+					try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (stmt != null) {
+						stmt.close();
+					}
+					if (conn != null) {
+						conn.close();
+					}
+					} catch (Exception e) {
+					e.printStackTrace();
+					}
+					}
+				%>
+
+              </div> 
+              <div>
+              </div> 
+              
+              <div>
+              	<br>
+              	<h4>사람들이 작성한 후기글<br>: (후기작성에서 받은 후기 뿌려줄 곳)</h4>
+              </div>                
   
             <div style="text-align: right;">
-            <button class="button primary large" onclick="">
-               결제하기
-               </button>
+            <a href="#" onclick=button_event()>
+            <button class="button primary large">
+            	결제하기  
+             </button></a>
                </div>
          </div>
             

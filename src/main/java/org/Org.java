@@ -4,6 +4,7 @@ public class Org {
 	private String Oid;
 	private String orgPassword;
 	private String orgName;
+	private int point;
 	
 	public String getOid() {
 		return Oid;
@@ -22,6 +23,12 @@ public class Org {
 	}
 	public void setOrgName(String orgName) {
 		this.orgName = orgName;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
 	}
 	
 }

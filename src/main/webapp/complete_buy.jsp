@@ -12,6 +12,12 @@ pageEncoding="UTF-8" %>
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
+  <%
+  String Oid =null;
+	if (session.getAttribute("Oid") != null){
+		Oid = (String)session.getAttribute("Oid");
+	}
+  %>
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Main -->
@@ -21,12 +27,21 @@ pageEncoding="UTF-8" %>
           <header id="header">
             <h2>구매완료</h2>
             <ul class="icons">
+              <% 
+            	if (Oid == null){
+            %>
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
+              <%
+            	} else {
+              %>
               <li>
-                <a href="login.html"><span class="label">Logout</span></a>
+                <a href="logout_service.jsp"><span class="label">Logout</span></a>
               </li>
+              <%
+            	}
+              %>
             </ul>
           </header>
 
@@ -35,13 +50,13 @@ pageEncoding="UTF-8" %>
             <!-- Content -->
             <h2 id="content">물품 구매가 완료되었습니다.</h2>
             <a
-              href="#"
+              href="./org_mypage.jsp"
               class="button large"
               type="button"
               class="btn btn-primary"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
-              >메인화면으로 가기</a
+              >마이페이지로 가기</a
             >
           </section>
         </div>

@@ -13,6 +13,12 @@ pageEncoding="UTF-8" %>
     <link href="./assets/css/mall_product.css" rel="stylesheet" />
   </head>
   <body class="is-preload">
+  <%
+  String Oid =null;
+	if (session.getAttribute("Oid") != null){
+		Oid = (String)session.getAttribute("Oid");
+	}
+  %>
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Main -->
@@ -22,12 +28,21 @@ pageEncoding="UTF-8" %>
           <header id="header">
             <h2>Mall</h2>
             <ul class="icons">
+              <% 
+            	if (Oid == null){
+            %>
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
+              <%
+            	} else {
+              %>
               <li>
-                <a href="login.html"><span class="label">Logout</span></a>
+                <a href="logout_service.jsp"><span class="label">Logout</span></a>
               </li>
+              <%
+            	}
+              %>
             </ul>
           </header>
 
@@ -40,26 +55,26 @@ pageEncoding="UTF-8" %>
                 <img src="images/toothpaste.jpeg" alt="" />
               </div>
               <div class="col-3 col-12-small">
-                <h3>{치약}</h3>
-                <p>{7000}원</p>
+                <h3>치약</h3>
+                <p>7000원</p>
                 <h3>수량</h3>
                 <form method="post" action="#">
                   <input
                     type="text"
-                    name="product_name"
-                    id="product_name"
+                    name="product_amount"
+                    id="product_amount"
                     placeholder="구매하실 수량을 입력하세요."
                   />
                 </form>
-                <a
-                  href="#"
-                  class="button large"
+                <button
+                  class="button large btn btn-primary"
                   type="button"
-                  class="btn btn-primary"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
-                  >구매하기</a
+                  onclick="purchaseClick()"
                 >
+                  구매하기
+                </button>
               </div>
             </div>
           </section>
@@ -86,21 +101,27 @@ pageEncoding="UTF-8" %>
               ></button>
             </div>
             <div class="modal-body">
-              <h2>{치약}</h2>
-              <h3>수랑 :</h3>
-              <h3>사용예정 포인트 :</h3>
+              <h2>치약</h2>
+              <h3>
+                <span>수량 : </span>
+                <input id="total_amount" style="border: none" readonly />
+              </h3>
+              <h3>
+                <span>사용예정 포인트 :</span>
+                <input id="total_point" style="border: none" readonly />
+              </h3>
             </div>
             <div class="modal-footer">
-              <a href="./complete_buy.jsp" type="button" class="button large"
-                >포인트 차감하기</a
-              >
-              <!-- <button
+              <!-- <a
+                href="./complete_buy.jsp"
                 type="button"
                 class="button large"
-                data-bs-dismiss="modal"
-              >
+                onclick="javascript:minusClick()"
+                >포인트 차감하기</a
+              > -->
+              <button type="button" class="button large" onclick="minusClick()">
                 포인트 차감하기
-              </button> -->
+              </button>
             </div>
           </div>
         </div>
@@ -175,5 +196,6 @@ pageEncoding="UTF-8" %>
       integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
       crossorigin="anonymous"
     ></script>
+   	<script src="assets/js/mall.js"></script>
   </body>
 </html>

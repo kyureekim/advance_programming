@@ -1,4 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page import="product.productVO" %>
+<%@ page import="product.productDAO" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.sql.*" %>
+
+<%!// 변수 선언
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	String uid = "kim";
+	String pwd = "1234";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String sql = "select orgname, oid  from organization";
+%> 
+	
+
+<jsp:useBean id="product" class="product.productVO" scope="page" />
 <!DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
@@ -14,6 +31,13 @@
 	</head>
 	<body class="is-preload">
 
+	<!--
+		<script>
+			function get_src(id){
+				var click_id = id;				
+			}
+		</script> -->
+		
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Main -->
@@ -44,33 +68,74 @@
 
           <section style="border-top: none" class="product">
             <div class="posts">
+		    
+		    <%
+					try {
+						// 데이터베이스를 접속하기 위한 드라이버 SW 로드
+						Class.forName("oracle.jdbc.driver.OracleDriver");
+						// 데이터베이스에 연결하는 작업 수행
+						conn = DriverManager.getConnection(url, "orgteam", "orgteam");
+						// 쿼리를 생성gkf 객체 생성
+						stmt = conn.createStatement();
+						// 쿼리 생성
+						rs = stmt.executeQuery(sql);
+					%>
+
+					<%
+						while (rs.next()) {
+					%>
+										
+					<article>
+               		<a href="corpDetail.jsp?id=<%=rs.getString("oid")%>" class="image" id="images/vol1.jpg" onclick="get_src(this.id)">
+                	<img src="images/vol1.jpg" alt=""/>
+                	</a>
+
+                	<h3><%=rs.getString("ORGNAME")%></h3>
+                	<h3><%=rs.getString("oid")%></h3>
+                
+              		</article>
+
+	
+					<%
+						}
+					} catch (Exception e) {
+					e.printStackTrace();
+					} finally {
+					try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (stmt != null) {
+						stmt.close();
+					}
+					if (conn != null) {
+						conn.close();
+					}
+					} catch (Exception e) {
+					e.printStackTrace();
+					}
+					}
+				%>
+
               <article>
-                <a href="corpDetail.jsp" class="image">
-                	<img src="images/pic02.jpg" alt=""/>
+                <a href="corpDetail.jsp" class="image" id="images/vol2.jpg" onclick="get_src(this.id)">
+                	<img src="images/vol2.jpg" alt=""/>
                 </a>
-                <h3>단체</h3>
-                <p>물품</p>
+                <h3>단체2(청렴온도: 00도)</h3>
+                <p>필요물품 나열</p>
               </article>
 
               <article>
-                <a href="corpDetail.jsp" class="image">
-                	<img src="images/pic02.jpg" alt=""/>
+                <a href="corpDetail.jsp" class="image" id="images/vol3.jpg" onclick="get_src(this.id)">
+                	<img src="images/vol3.jpg" alt=""/>
                 </a>
-                <h3>단체</h3>
-                <p>내용</p>
+                <h3>단체3(청렴온도: 00도)</h3>
+                <p>필요물품 나열</p>
               </article>
 
               <article>
-                <a href="corpDetail.jsp" class="image">
-                	<img src="images/pic02.jpg" alt=""/>
-                </a>
-                <h3>단체</h3>
-                <p>내용</p>
-              </article>
-
-              <article>
-                <a href="corpDetail.jsp" class="image">
-                	<img src="images/pic02.jpg" alt=""/>
+                <a href="corpDetail.jsp" class="image" id="images/vol4.jpg" onclick="get_src(this.id)">
+                	<img src="images/vol4.jpg" alt=""/>
                 </a>
                 <h3>단체</h3>
                 <p>내용</p>
@@ -148,6 +213,7 @@
             </div>
           </section>
         </div>
+       
       </div>
 				<!-- Sidebar -->
 					<div id="sidebar">

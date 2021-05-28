@@ -31,12 +31,21 @@ pageEncoding="UTF-8" %>
           <header id="header">
             <h2>서류 작성하기</h2>
             <ul class="icons">
+              <% 
+            	if (Oid == null){
+            %>
               <li>
                 <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
+              <%
+            	} else {
+              %>
               <li>
-                <a href="login_org.jsp"><span class="label">Logout</span></a>
+                <a href="logout_service.jsp"><span class="label">Logout</span></a>
               </li>
+              <%
+            	}
+              %>
             </ul>
           </header>
 

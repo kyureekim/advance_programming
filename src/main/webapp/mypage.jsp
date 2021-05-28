@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 	Editorial by HTML5 UP
@@ -25,12 +27,6 @@
             <a href="index.html" class="logo"
               ><strong>기부</strong> &nbsp'나만의 투명한 기부 참여'</a
             >
-            <%
-            	String Oid =null;
-            	if (session.getAttribute("Oid") != null){
-            		Oid = (String)session.getAttribute("Oid");
-            	}
-            %>
             <ul class="icons">
               <li>
                 <a href="login.html"><span class="label">Login</span></a>

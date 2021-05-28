@@ -3,6 +3,8 @@
 <%@ page import="org.orgDAO" %>
 <%@ page import="document.documentDAO" %>
 <%@ page import="document.Document" %>
+<%@ page import="java.io.PrintWriter" %>
+
 <jsp:useBean id="org" class="org.Org" scope="page" />
 <jsp:useBean id="document" class="document.Document" scope="page" />
 
@@ -28,6 +30,14 @@
             	if (session.getAttribute("Oid") != null){
             		Oid = (String)session.getAttribute("Oid");
             	}
+            	
+            	if (Oid == null){
+                    PrintWriter script =response.getWriter();
+                    script.println("<script>");
+                    script.println("alert('기부 단체로 로그인을 하세요.')");
+                    script.println("location.href='login_org.jsp'");
+                    script.println("</script>");
+                }
             	
             	orgDAO orgDAO = new orgDAO();
             	org = orgDAO.getOid(Oid);
@@ -76,15 +86,17 @@
                   </p>
                 </div>
               </div>
-              <div class="col-6 col-12-small">
-                <div class="box">
-                  <h2><a name="orgPoint">포인트</a></h2>
-                  <p>
-                    기부받은 포인트 : <br />
-                    남은 포인트 :
-                  </p>
-                </div>
-              </div>
+             <div class="col-6 col-12-small">
+            	<div class="box">
+              	<h2><a name="orgPoint">포인트</a></h2>
+              	<p>
+                	기부받은 포인트 :
+                <input id="gibu_point" style="border: none" value="300000" readonly /><br>
+                	남은 포인트 :
+                <input style="border: none" id="notused_point" class="input-local" value="300000" readonly />
+              	</p>
+              	</div>
+          	</div>
             </div>
             <div class="col-6 col-12-small">
               <div class="box">
@@ -191,5 +203,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/mall.js"></script>
   </body>
 </html>

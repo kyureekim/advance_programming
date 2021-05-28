@@ -1,0 +1,16 @@
+.success-btn {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product,
+.amount {
+  margin-top: 10px;
+}
+
+.product-tab {
+  display: flex;
+  justify-content: space-between;
+}

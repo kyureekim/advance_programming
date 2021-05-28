@@ -17,6 +17,12 @@ pageEncoding="UTF-8" %>
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
+  <%
+  String Oid =null;
+	if (session.getAttribute("Oid") != null){
+		Oid = (String)session.getAttribute("Oid");
+	}
+  %>
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Main -->
@@ -26,17 +32,25 @@ pageEncoding="UTF-8" %>
           <header id="header">
             <h2>Mall</h2>
             <ul class="icons">
+              <% 
+            	if (Oid == null){
+            %>
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
+              <%
+            	} else {
+              %>
               <li>
-                <a href="login.html"><span class="label">Logout</span></a>
+                <a href="logout_service.jsp"><span class="label">Logout</span></a>
               </li>
+              <%
+            	}
+              %>
             </ul>
           </header>
 
-          <!-- Section -->
-          <section>
+           <section>
             <!-- <header class="major"> -->
             <h2 class="content">포인트로 필요한 물품을 구매하세요!</h2>
             <!-- </header> -->
@@ -46,57 +60,57 @@ pageEncoding="UTF-8" %>
                   ><img src="images/toothpaste.jpeg" alt=""
                 /></a>
                 <h3>치약</h3>
-                <p>1개당 7000원</p>
+                <p>7000원</p>
                 <ul class="actions">
                   <li><a href="./mall_product.jsp" class="button">More</a></li>
                 </ul>
               </article>
               <article>
                 <a href="#" class="image"
-                  ><img src="images/pic02.jpg" alt=""
+                  ><img src="images/800.png" alt=""
                 /></a>
-                <h3>물건</h3>
-                <p>가격</p>
+                <h3>지우개</h3>
+                <p>800원</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
               </article>
               <article>
                 <a href="#" class="image"
-                  ><img src="images/pic03.jpg" alt=""
+                  ><img src="images/2000.png" alt=""
                 /></a>
-                <h3>물건</h3>
-                <p>가격</p>
+                <h3>연필</h3>
+                <p>2,000원</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
               </article>
               <article>
                 <a href="#" class="image"
-                  ><img src="images/pic04.jpg" alt=""
+                ><img src="images/20000.png" alt=""
                 /></a>
-                <h3>물건</h3>
-                <p>가격</p>
+                <h3>컵</h3>
+                <p>20,000원</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
               </article>
               <article>
                 <a href="#" class="image"
-                  ><img src="images/pic05.jpg" alt=""
+                  ><img src="images/11000.png" alt=""
                 /></a>
-                <h3>물건</h3>
-                <p>가격</p>
+                <h3>칫솔</h3>
+                <p>11,000원</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>
               </article>
               <article>
                 <a href="#" class="image"
-                  ><img src="images/pic06.jpg" alt=""
+                  ><img src="images/30000.png" alt=""
                 /></a>
-                <h3>물건</h3>
-                <p>가격</p>
+                <h3>에코백</h3>
+                <p>30,000원</p>
                 <ul class="actions">
                   <li><a href="#" class="button">More</a></li>
                 </ul>

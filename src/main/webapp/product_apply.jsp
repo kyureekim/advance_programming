@@ -10,8 +10,15 @@ pageEncoding="UTF-8" %>
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/org.css " />
   </head>
   <body class="is-preload">
+  <%
+  String Oid =null;
+	if (session.getAttribute("Oid") != null){
+		Oid = (String)session.getAttribute("Oid");
+	}
+  %>
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Main -->
@@ -21,12 +28,21 @@ pageEncoding="UTF-8" %>
           <header id="header">
             <h2>물품 등록</h2>
             <ul class="icons">
+              <% 
+            	if (Oid == null){
+            %>
               <li>
-                <a href="login.html"><span class="label">Login</span></a>
+                <a href="login_org.jsp"><span class="label">Login</span></a>
               </li>
+              <%
+            	} else {
+              %>
               <li>
-                <a href="login.html"><span class="label">Logout</span></a>
+                <a href="logout_service.jsp"><span class="label">Logout</span></a>
               </li>
+              <%
+            	}
+              %>
             </ul>
           </header>
 
@@ -36,7 +52,7 @@ pageEncoding="UTF-8" %>
             <h2 id="content">필요한 물품과 수량을 입력해주세요.</h2>
             <form method="post" action="product_apply_service.jsp">
               <div class="row">
-                <div class="col-3 col-12-small">
+                <div class="col-3 col-12-small product">
                   <h3>물품</h3>
                     <input
                       type="text"
@@ -45,7 +61,7 @@ pageEncoding="UTF-8" %>
                       placeholder="물품명을 입력하세요."
                     />
                 </div>
-                <div class="col-3 col-12-small">
+                <div class="col-3 col-12-small amount">
                   <h3>수량</h3>
                     <input
                       type="text"
@@ -54,7 +70,9 @@ pageEncoding="UTF-8" %>
                     />
                 </div>
               </div>
-              <input type="submit" value="등록완료" class="button large" />
+              <div class="success-btn">
+                <input type="submit" value="등록완료" class="button large" />
+              </div>
             </form>
           </section>
         </div>

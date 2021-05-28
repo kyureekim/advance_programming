@@ -60,7 +60,7 @@ public class orgDAO{
 				org.setOid(rs.getString(1));
 				org.setOrgPassword(rs.getString(2));
 				org.setOrgName(rs.getString(3));
-				
+				org.setPoint(rs.getInt(4));				
 				return org;
 			}
 		} catch(Exception e) {
@@ -70,5 +70,22 @@ public class orgDAO{
 		return null;
 	}
 	
-	
+	//단체명 조회하는 함수
+	public String getName(String Oid) {
+		String SQL = "SELECT orgName FROM organization WHERE Oid=?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1, Oid);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				return rs.getString(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

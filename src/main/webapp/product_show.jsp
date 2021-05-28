@@ -2,9 +2,15 @@
 pageEncoding="UTF-8" %>
 <%@ page import="product.productVO" %>
 <%@ page import="product.productDAO" %>
+<%@ page import="org.Org" %>
+<%@ page import="org.orgDAO" %>
+<%@ page import="point.Point" %>
+<%@ page import="point.pointDAO" %>
 <%@ page import="java.util.ArrayList" %>
 
 <jsp:useBean id="product" class="product.productVO" scope="page" />
+<jsp:useBean id="org" class="org.Org" scope="page"/>
+<jsp:useBean id="point" class="point.Point" scope="page"/>
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,6 +21,7 @@ pageEncoding="UTF-8" %>
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/org.css " />
   </head>
   <body class="is-preload">
   <%
@@ -23,6 +30,9 @@ pageEncoding="UTF-8" %>
 		Oid = (String)session.getAttribute("Oid");
 	}
 	
+	Point Point = new Point();
+	pointDAO pointDAO = new pointDAO();
+	point = pointDAO.getpoint(Oid);
   %>
     <!-- Wrapper -->
     <div id="wrapper">
@@ -53,105 +63,79 @@ pageEncoding="UTF-8" %>
 
           <!-- Section -->
           <section>
-            <header class="main">
-              <button class="button primary large" onclick="productClick()">
-                product
+          	<div class="product-tab">
+              <button class="button primary large">
+                point
               </button>
-              <button class="button primary large" onclick="talentClick()">
-                talent
-              </button>
+              <a href="./point_apply.jsp" class="button large">등록하기</a>
+            </div>
+            <br>
+            <br>
+            	<%
+            		if(point == null) {
+            	%>
+            <h3 id="content">필요한 포인트를 등록하지 않았어요.</h3>
+            	<%
+            		} else{
+            	%>
+            <h3>필요한 포인트: <%=point.getPoint() %></h3>
+            <h3>필요한 물품: <%=point.getPointproduct() %></h3>
+            	<%
+            		}
+            	%>
+            <hr>
+            <header class="main product-tab">
+              <div>
+                <button class="button primary large" onclick="productClick()">
+                  product
+                </button>
+                <button class="button primary large" onclick="talentClick()">
+                  talent
+                </button>
+              </div>
               <a href="./product_apply.jsp" class="button large">등록하기</a>
             </header>
           </section>
 
-          <section style="border-top: none" class="product">
-            <div class="posts">
-            	<% 
-                	productDAO productDAO = new productDAO();
-                	int count = productDAO.count();
-                	if (count != 0) {
-                		for(int i=1; i < count+1; i++){
-                			productVO productVO = new productVO();
-                			product = productDAO.getList(i);
-                %>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic02.jpg" alt=""
-                /></a>
-                <h3><%=product.getOid() %></h3>
-                <p><%=product.getProductName() %></p>
-                <p><%=product.getProductNumber() %></p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
+          <section  style="border-top: none" class="product">
+          	<div>
+         	  <article>
+	         	 <div class="posts">
+	            	<% 
+	                	productDAO productDAO = new productDAO();
+	                	int count = productDAO.count();
+	                	if (count != 0) {
+	                		for(int i=1; i < count+1; i++){
+	                			productVO productVO = new productVO();
+	                			product = productDAO.getList(i);
+	                			String oid = product.getOid();
+	                			
+	                			Org Org = new Org();
+	                			orgDAO orgDAO = new orgDAO();
+	                %>
+	              <article>
+	                <h4><%=product.getProductName() %></h4>
+	                <p><%=product.getProductNumber() %></p>
+	                <p><%=orgDAO.getName(oid) %></p>
+	              </article>
+	              <% 		}
+	              		}
+	              %>
+	           </div>
               </article>
-              <% 		}
-              		}
-              %>
-           </div>
+            </div>
           </section>
 
           <section style="border-top: none" class="talent">
             <div class="posts">
               <article>
-                <a href="#" class="image"
-                  ><img src="images/pic03.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>재능</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
+                <p>종이접기</p>
               </article>
               <article>
-                <a href="#" class="image"
-                  ><img src="images/pic02.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
+                <p>인형극</p>
               </article>
               <article>
-                <a href="#" class="image"
-                  ><img src="images/pic03.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic04.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic05.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
-              </article>
-              <article>
-                <a href="#" class="image"
-                  ><img src="images/pic06.jpg" alt=""
-                /></a>
-                <h3>단체</h3>
-                <p>내용</p>
-                <ul class="actions">
-                  <li><a href="#" class="button">More</a></li>
-                </ul>
+                <p>공부하기</p>
               </article>
             </div>
           </section>
@@ -168,31 +152,21 @@ pageEncoding="UTF-8" %>
             </header>
             <ul>
               <h3>**아동복지센터님 환영합니다</h3>
-              <li><a href="#">Homepage</a></li>
+              <li><a href="index.jsp">Homepage</a></li>
               <li><a href="product_show.jsp">기부받기</a></li>
               <li>
-                <a href="#" class="opener">마이페이지</a>
+                <a href="org_mypage.jsp" class="opener">마이페이지</a>
                 <ul>
-                  <li><a href="#">마이페이지</a></li>
-                  <li><a href="#">마이페이지</a></li>
-                  <li><a href="#">마이페이지</a></li>
-                  <li><a href="#">마이페이지</a></li>
+                  <li><a href="org_mypage.jsp#myInfo">개인정보</a></li>
+                  <li><a href="org_mypage.jsp#orgPoint">포인트</a></li>
+                  <li>
+                    <a href="org_mypage.jsp#orgUsedPoint">포인트 사용내역</a>
+                  </li>
+                  <li>
+                    <a href="org_mypage.jsp#orgProduct">물품 기부내역</a>
+                  </li>
                 </ul>
               </li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
-              <li>
-                <span class="opener">메뉴</span>
-                <ul>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                </ul>
-              </li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
             </ul>
           </nav>
 
