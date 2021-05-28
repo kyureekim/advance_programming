@@ -14,7 +14,7 @@ pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>투명한 기부 플랫폼</title>
+    <title>투명한 기부</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -105,7 +105,7 @@ pageEncoding="UTF-8" %>
 	                	productDAO productDAO = new productDAO();
 	                	int count = productDAO.count();
 	                	if (count != 0) {
-	                		for(int i=1; i < count+1; i++){
+	                		for(int i=1; i<count+1; i++){
 	                			productVO productVO = new productVO();
 	                			product = productDAO.getList(i);
 	                			String oid = product.getOid();
@@ -144,18 +144,21 @@ pageEncoding="UTF-8" %>
 
       <!-- Sidebar -->
       <div id="sidebar">
+      <%
+      	orgDAO orgDAO = new orgDAO();
+      %>
         <div class="inner">
           <!-- Menu -->
           <nav id="menu">
             <header class="major">
-              <h2>플랫폼 이름</h2>
+              <h2><a href="org_main.jsp">NE donation</a></h2>
             </header>
             <ul>
-              <h3>**아동복지센터님 환영합니다</h3>
-              <li><a href="index.jsp">Homepage</a></li>
+              <h3><p style="color: #f56a6a; display: inline;"><%=orgDAO.getName(Oid) %></p>님 환영합니다</h3>
               <li><a href="product_show.jsp">기부받기</a></li>
+              <li><a href="mall.jsp">MALL</a></li>
               <li>
-                <a href="org_mypage.jsp" class="opener">마이페이지</a>
+                <a href="#" class="opener">마이페이지</a>
                 <ul>
                   <li><a href="org_mypage.jsp#myInfo">개인정보</a></li>
                   <li><a href="org_mypage.jsp#orgPoint">포인트</a></li>
@@ -170,21 +173,15 @@ pageEncoding="UTF-8" %>
             </ul>
           </nav>
 
-          <!-- Section -->
-          <section>
+		  <section>
             <header class="major">
               <h2>Get in touch</h2>
             </header>
-            <p>기부플랫폼 소개</p>
             <ul class="contact">
-              <li class="icon solid fa-envelope">
-                <a href="#">이메일</a>
-              </li>
-              <li class="icon solid fa-phone">전화번호</li>
-              <li class="icon solid fa-home">
-                주소<br />
-                상세주소
-              </li>
+              <li class="icon solid fa-envelope"><a href="#">nedonation@donation.com</a></li>
+              <li class="icon solid fa-phone">(+82) 10-3116-7130</li>
+              <li class="icon solid fa-home">30, Pildong-ro 1-gil, Jung-gu<br />
+                Seoul, Republic of Korea</li>
             </ul>
           </section>
         </div>

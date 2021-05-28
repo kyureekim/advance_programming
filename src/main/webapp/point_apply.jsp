@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ page import="org.orgDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Elements - Editorial by HTML5 UP</title>
+    <title>투명한 기부</title>
     <meta charset="utf-8" />
     <meta
             name="viewport"
@@ -67,7 +68,7 @@
                                     type="text"
                                     name="pointproduct"
                                     id="pointproduct"
-                                    placeholder="몰에서 구매예정인 물품을 쉼표를 단위로 적어주세요. 예) 칫솔 10개, 치약 50개"
+                                    placeholder="몰에서 구매예정인 물품을 쉼표 단위로 적어주세요. 예) 칫솔 10개, 치약 50개"
                             />
                         </div>
                     </div>
@@ -79,51 +80,50 @@
         </div>
     </div>
 
-    <div id="sidebar">
+    <!-- Sidebar -->
+      <div id="sidebar">
+      <%
+      	orgDAO orgDAO = new orgDAO();
+      %>
         <div class="inner">
-            <!-- Menu -->
-            <nav id="menu">
-                <header class="major">
-                    <h2>플랫폼 이름</h2>
-                </header>
+          <!-- Menu -->
+          <nav id="menu">
+            <header class="major">
+              <h2><a href="org_main.jsp">NE donation</a></h2>
+            </header>
+            <ul>
+              <h3><p style="color: #f56a6a; display: inline;"><%=orgDAO.getName(Oid) %></p>님 환영합니다</h3>
+              <li><a href="product_show.jsp">기부받기</a></li>
+              <li><a href="mall.jsp">MALL</a></li>
+              <li>
+                <a href="#" class="opener">마이페이지</a>
                 <ul>
-                    <h3>**아동복지센터님 환영합니다</h3>
-                    <li><a href="/index.jsp">Homepage</a></li>
-                    <li><a href="product_show.jsp">기부받기</a></li>
-                    <li>
-                        <a href="/org_mypage.jsp" class="opener">마이페이지</a>
-                        <ul>
-                            <li><a href="/org_mypage.jsp#myInfo">개인정보</a></li>
-                            <li><a href="/org_mypage.jsp#orgPoint">포인트</a></li>
-                            <li>
-                                <a href="/org_mypage.jsp#orgUsedPoint">포인트 사용내역</a>
-                            </li>
-                            <li>
-                                <a href="/org_mypage.jsp#orgProduct">물품 기부내역</a>
-                            </li>
-                        </ul>
-                    </li>
+                  <li><a href="org_mypage.jsp#myInfo">개인정보</a></li>
+                  <li><a href="org_mypage.jsp#orgPoint">포인트</a></li>
+                  <li>
+                    <a href="org_mypage.jsp#orgUsedPoint">포인트 사용내역</a>
+                  </li>
+                  <li>
+                    <a href="org_mypage.jsp#orgProduct">물품 기부내역</a>
+                  </li>
                 </ul>
-            </nav>
+              </li>
+            </ul>
+          </nav>
 
-            <!-- Section -->
-            <section>
-                <header class="major">
-                    <h2>Get in touch</h2>
-                </header>
-                <p>기부플랫폼 소개</p>
-                <ul class="contact">
-                    <li class="icon solid fa-envelope">
-                        <a href="#">이메일</a>
-                    </li>
-                    <li class="icon solid fa-phone">전화번호</li>
-                    <li class="icon solid fa-home">
-                        주소<br />
-                        상세주소
-                    </li>
-                </ul>
-            </section>
+		  <section>
+            <header class="major">
+              <h2>Get in touch</h2>
+            </header>
+            <ul class="contact">
+              <li class="icon solid fa-envelope"><a href="#">nedonation@donation.com</a></li>
+              <li class="icon solid fa-phone">(+82) 10-3116-7130</li>
+              <li class="icon solid fa-home">30, Pildong-ro 1-gil, Jung-gu<br />
+                Seoul, Republic of Korea</li>
+            </ul>
+          </section>
         </div>
+      </div>
     </div>
 </div>
 

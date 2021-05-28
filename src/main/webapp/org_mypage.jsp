@@ -16,7 +16,7 @@
 -->
 <html>
   <head>
-    <title>Elements - Editorial by HTML5 UP</title>
+    <title>투명한 기부</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -81,6 +81,7 @@
                 <div class="box">
                   <h2><a name="myInfo">개인정보</a></h2>
                   <p>
+                  	이메일 : <%=org.getOid() %>
                     단체이름 : <%=org.getOrgName() %> <br />
                     비밀번호 : <%=org.getOrgPassword() %>
                   </p>
@@ -90,11 +91,13 @@
             	<div class="box">
               	<h2><a name="orgPoint">포인트</a></h2>
               	<p>
-                	기부받은 포인트 :
-                <input id="gibu_point" style="border: none" value="300000" readonly /><br>
-                	남은 포인트 :
-                <input style="border: none" id="notused_point" class="input-local" value="300000" readonly />
-              	</p>
+	                기부받은 포인트 :
+	                <input id="gibu_point" style="border: none" value="300000" readonly /><br>
+	                사용 포인트 :
+	                <input style="border: none" id="used_point" readonly /><br>
+	                남은 포인트 :
+	                <input style="border: none" id="notused_point" value="" readonly />
+	             </p>
               	</div>
           	</div>
             </div>
@@ -108,7 +111,7 @@
                   	if( document != null && document.getDocumentID()==1){
                   %>
                   <div>기부 물품 : <%=document.getProductName() %></div> <!-- 기부받은 물품 작성 -->
-                  <img src="https://lh3.googleusercontent.com/proxy/I55Sokymr7nfkqUmyrQMW4Bz6dV884JKb-gZey120A3-XIQlQPNK_S0ZWgJ4rbg5zyEtTc77wPJeX6Z38VD5tYReJp0PeyWUgHvO4kLfi7CZiamsLB0aWxc7pulECnKMbWtCe6XCQ2JBJhzC8wixnbgVcKi2HIA7DsiSbcM2alKR-ltq3UywYmIGZondocZ3HW1Hk0DB7oDB_1fOhqCiwNKRQp2gh4bG9qw1X-Txu-s86elnxAI5Zj8GnQYoxtQBi4dWvHcU7zrN0bfBBbzUxs68MdmJ6_rLaaeAqJsjUB0zX4bOVMEVwAful-9HSBEfay9v"/>
+                  <img src="images/bill.jpg"/>
                   <div>사유서 : <%=document.getDocumentStatement() %></div>
                   <button onclick="location.href='delete_document_service.jsp'">삭제</button>
                   <%
@@ -140,57 +143,37 @@
           <!-- Menu -->
           <nav id="menu">
             <header class="major">
-              <h2>플랫폼 이름</h2>
+              <h2><a href="org_main.jsp">NE donation</a></h2>
             </header>
             <ul>
-              <h3>**아동복지센터님 환영합니다</h3>
-              <li><a href="generic.html">Homepage</a></li>
+              <h3><p style="color: #f56a6a; display: inline;"><%=orgDAO.getName(Oid) %></p>님 환영합니다</h3>
               <li><a href="product_show.jsp">기부받기</a></li>
+              <li><a href="mall.jsp">MALL</a></li>
               <li>
                 <a href="#" class="opener">마이페이지</a>
                 <ul>
-                  <li><a href="/org_mypage.jsp#myInfo">개인정보</a></li>
-                  <li><a href="/org_mypage.jsp#orgPoint">포인트</a></li>
+                  <li><a href="org_mypage.jsp#myInfo">개인정보</a></li>
+                  <li><a href="org_mypage.jsp#orgPoint">포인트</a></li>
                   <li>
-                    <a href="/org_mypage.jsp#orgUsedPoint">포인트 사용내역</a>
+                    <a href="org_mypage.jsp#orgUsedPoint">포인트 사용내역</a>
                   </li>
                   <li>
-                    <a href="/org_mypage.jsp#orgProduct">물품 기부내역</a>
+                    <a href="org_mypage.jsp#orgProduct">물품 기부내역</a>
                   </li>
                 </ul>
               </li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
-              <li>
-                <span class="opener">메뉴</span>
-                <ul>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                  <li><a href="#">메뉴</a></li>
-                </ul>
-              </li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
-              <li><a href="#">메뉴</a></li>
             </ul>
           </nav>
 
-          <!-- Section -->
-          <section>
+		  <section>
             <header class="major">
               <h2>Get in touch</h2>
             </header>
-            <p>기부플랫폼 소개</p>
             <ul class="contact">
-              <li class="icon solid fa-envelope">
-                <a href="#">이메일</a>
-              </li>
-              <li class="icon solid fa-phone">전화번호</li>
-              <li class="icon solid fa-home">
-                주소<br />
-                상세주소
-              </li>
+              <li class="icon solid fa-envelope"><a href="#">nedonation@donation.com</a></li>
+              <li class="icon solid fa-phone">(+82) 10-3116-7130</li>
+              <li class="icon solid fa-home">30, Pildong-ro 1-gil, Jung-gu<br />
+                Seoul, Republic of Korea</li>
             </ul>
           </section>
         </div>

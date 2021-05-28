@@ -3,6 +3,7 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="document.Document" %>
 <%@ page import="document.documentDAO" %>
+<%@ page import="point.Point" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <jsp:useBean id="document" class="document.Document" scope="page"/>
@@ -21,7 +22,8 @@
 		}
 		
 		documentDAO documentDAO = new documentDAO();
-		String productname = "제품";
+		Point point = new Point();
+		String productname = point.getPointproduct();
 		int result = documentDAO.write(document.getDocumentID(), Oid, productname, document.getDocumentStatement());
 		
 		if (Oid == null) {

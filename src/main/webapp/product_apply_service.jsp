@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>투명한 기부 플랫폼</title>
+    <title>투명한 기부</title>
 </head>
 <body>
     <%
